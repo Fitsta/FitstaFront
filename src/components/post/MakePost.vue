@@ -1,10 +1,23 @@
 <template>
   <!-- 필터 선택 페이지 -->
-  <div :class="curr + ' upload-image'" :style="{ backgroundImage : `url(${imgURL})` }"></div>
+  <div :class="currFilter + ' upload-image'" :style="{ backgroundImage : `url(${imgURL})` }"></div>
   <div class="filters">
-    <div @click="fire" :class="filter + ' filter-item'" :style="`background-image:url(${imgURL})`"  v-for="filter in 필터들" :key="filter">
-    {{filter}}
+
+  <div @click="fire(filter)" :class="filter + ' filter-item'" :style="`background-image:url(${imgURL})`" v-for="filter in filterList" :key="filter">
+    <div class="filter-name">
+      <p>{{ filter }}</p>
     </div>
+  </div>
+  </div>
+  <div class="container mt-2 comment">
+    <div class="publish">
+      <h4>Comment</h4>
+      <button type="button" class="btn btn-sm btn-outline-info publish-btn"
+        @click="publish"
+      >publish</button>
+    </div>
+    <textarea class="form-control" rows="10" v-model="this.comment">
+    </textarea>
   </div>
 </template>
 
@@ -14,39 +27,62 @@ import { mapState } from 'vuex';
 export default {
   data() {
     return {
-      curr:"",
-      필터들: [ "aden", "_1977", "brannan", "brooklyn", "clarendon", "earlybird", "gingham", "hudson", 
-              "inkwell", "kelvin", "lark", "lofi", "maven", "mayfair", "moon", "nashville", "perpetua", 
-              "reyes", "rise", "slumber", "stinson", "toaster", "valencia", "walden", "willow", "xpro2"],
+      comment:"",
+      currFilter:"",
+      filterList: ["","inkwell", "aden", "_1977", "brannan", "brooklyn", "clarendon", "earlybird", "gingham", "hudson", 
+               "lark", "lofi", "mayfair", "moon", "nashville",
+              "reyes", "rise", "slumber", "toaster", "valencia", "walden", "willow", "xpro2"],
     }
-  },
-  props: {
-    게시물: Array,
-    step: Number,
-    url: String,
   },
   computed: {
     ...mapState(['imgURL'])
   },
   methods: {
-    fire() {
-      console.log()
+    publish() {
+      console.log(this.comment)
+      this.$router.push('/')
+    },
+    fire(event) {
+      this.currFilter = event
     }
   }
 };
 </script>
 
-<style>
+<style scoped>
+.publish-btn {
+  margin-left: 58.7%;
+  margin-bottom: 10px;
+}
+
+.publish {
+  display: flex;
+}
+
+.comment {
+  margin-bottom: 17% !important;
+}
+
+.filter-name {
+  color: black;
+  position:fixed;
+  bottom: -15%;
+  margin-bottom: 100% !important;
+}
+
 .upload-image {
   width: 100%;
   height: 450px;
   background: cornflowerblue;
   background-size: cover;
 }
+
 .filters {
-  overflow-x: scroll;
-  white-space: nowrap;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
 }
+
 .filter-1 {
   width: 100px;
   height: 100px;
@@ -57,19 +93,24 @@ export default {
   color: white;
   background-size: cover;
 }
+
 .filters::-webkit-scrollbar {
   height: 5px;
 }
+
 .filters::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
+
 .filters::-webkit-scrollbar-thumb {
   background: #888;
   border-radius: 5px;
 }
+
 .filters::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
 .write-box {
   border: none;
   width: 90%;
@@ -80,9 +121,10 @@ export default {
   outline: none;
 }
 .filter-item {
+  flex: 0 0 auto;
   width: 100px;
   height: 100px;
-  margin: 10px 10px 10px auto;
+  margin: 33px 10px 10px auto;
   padding: 8px;
   display: inline-block;
   color : white;
