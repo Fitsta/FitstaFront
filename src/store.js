@@ -3,15 +3,16 @@ import { createStore } from 'vuex';
 const store = createStore({
   state() {
     return {
-      // 포스팅
-      
+      imgURL:"",
     }
   },
   getters: {
 
   },
   mutations : {
-
+    setImgURL(state, payload) {
+      state.imgURL = payload;
+    },
   },
   actions: {
 

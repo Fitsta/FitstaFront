@@ -1,13 +1,143 @@
 <template>
-  프로필 수정페이지
+  <div class="container">
+    <img class="user-image" src="../../icon/me.png" alt="프로필사진">
+    <div class="box">
+      <div class="num first">
+        {{this.postNum}}
+      </div>
+      <div class="category">
+        게시물
+      </div>
+    </div>
+    <div class="box">
+      <div class="num">
+        {{this.follower}}
+      </div>
+      <div class="category">
+        팔로워
+      </div>
+    </div>
+    <div class="box">
+      <div class="num">
+        {{this.following}}
+      </div>
+      <div class="category">
+        팔로잉
+      </div>
+    </div>
+  </div>
+  <div class="name">
+    지민성
+  </div>
+  <button type="button" class="btn btn-light profile-btn">프로필 편집</button>
+  <button type="button" class="btn btn-light profile-btn">프로필 공유</button>
+  <div class="name">
+    사람 찾아보기
+  </div>
+  <div class="container2 recommend">
+    <CardUser/>
+    <CardUser/>
+    <CardUser/>
+    <CardUser/>
+    <CardUser/>
+  </div>
+  <img class="icon" src="../../icon/grid.png" alt="프로필사진">
+  <img class="icon" src="../../icon/teg.png" alt="프로필사진">
+  <div class="container text-center">
+  <div class="row row-cols-3 images">
+    <img v-for="i in 10" :key="i" src="../../icon/dog.jpg" class="col my-grid" alt="프로필사진">
+    <img src="../../icon/dog.jpg" class="col my-grid" alt="프로필사진">
+  </div>
+</div>
 </template>
 
 <script>
-export default {
+import CardUser from './CardUser.vue';
 
+export default {
+  data() {
+    return {
+      postNum : 213,
+      follower : 58,
+      following: 481,
+    }
+  },
+  components: {
+    CardUser
+  }
 }
 </script>
 
-<style>
+<style scoped>
+.images {
+  margin-top: 3%;
+}
 
+.my-grid {
+  padding: 1px 1px 1px 1px
+}
+
+.recommend {
+  margin-top: 2%;
+  margin-left: 1.4%;
+}
+
+.icon {
+  margin-top: 4%;
+  padding: 5px;
+  width : 35px;
+  margin-left: 23%;
+  margin-right: 14%;
+}
+
+.profile-btn {
+  width: 180px;
+  margin-top: 5%;
+  margin-left: 4%;
+  margin-bottom: 3%;
+  background-color: lightgray;
+  font-size: 15px;
+  font-weight: bold;
+
+}
+
+.name {
+  margin-top: 2%;
+  margin-left: 5.6%;
+  /* font-size: 16px; */
+  font-weight: bolder;
+}
+
+.first {
+  color:rgb(126, 124, 124)
+}
+
+.box {
+  margin-top: 11%;
+  margin-left: 7%;
+}
+
+.num {
+  margin-left: 29%;
+  font-weight: bolder;
+}
+
+.category {
+  font-weight: bolder;
+}
+
+.container {
+  display: flex;
+}
+
+.user-image {
+  margin-top: 5%;
+  margin-left: 3%;
+  width: 100px;
+  height: 100px;
+  min-width:32px;
+  border-radius: 50%;
+  overflow:hidden;
+  margin-right: 10px;
+}
 </style>

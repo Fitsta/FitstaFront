@@ -5,20 +5,34 @@
       <div class="id">CheeseRoll</div>
       <div class="name">Cake</div>
     </div>
-    <button type="button" class="btn btn-primary follow mt-1">follow</button>
+    <button v-if="this.isFollow" type="button" class="btn btn-secondary follow mt-1" @click="follow">unfollow</button>
+    <button v-else type="button" class="btn btn-primary follow mt-1" @click="follow">follow</button>
   </div>
 </template>
 
 <script>
 
 export default {
+  data() {
+    return {
+      isFollow: false,      
+    }
+  },
+  methods : {
+    follow() {
+      this.isFollow = !this.isFollow
+    }
+  }
 }
 </script>
 
-<style scope>
+<style scoped>
 .follow {
+  padding-right: 1px;
+  padding-left: 1px;
+  width: 80px;
   height: 40px;
-  margin-left: 40%;
+  margin-left: 39%;
 }
 .name {
   font-weight: bolder;  
@@ -27,5 +41,18 @@ export default {
 
 .container {
   display: flex;
+}
+
+.id {
+  font-weight: bolder;
+}
+
+.user-image {
+  width: 50px;
+  height: 50px;
+  min-width:32px;
+  border-radius: 50%;
+  overflow:hidden;
+  margin-right: 10px;
 }
 </style>

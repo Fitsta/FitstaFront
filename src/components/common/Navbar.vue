@@ -6,8 +6,11 @@
     <img v-if="this.navNum === 1" class="icon-select" src="../../icon/search.png" @click="moveSearch">
     <img v-else class="icon" src="../../icon/search.png" @click="moveSearch">
 
-    <img v-if="this.navNum === 2" class="icon-select" src="../../icon/post.png" @click="movePosting">
-    <img v-else class="icon" src="../../icon/post.png" @click="movePosting">
+    <input @change="upload" type="file" id="file" class="inputfile" />
+    <label for="file" class="icon-select">
+      <img v-if="this.navNum === 2" class="icon-select" src="../../icon/post.png" @click="movePosting">
+      <img v-else class="icon" src="../../icon/post.png">  
+    </label>
 
     <img v-if="this.navNum === 3" class="icon-select" src="../../icon/reels.png" @click="moveReels">
     <img v-else class="icon" src="../../icon/reels.png" @click="moveReels">
@@ -23,6 +26,8 @@ export default {
   data() {
     return {
       navNum : 0,
+      url:"",
+      step:0,
     }
   },
   methods: {
@@ -34,10 +39,18 @@ export default {
       this.navNum = 1;
       this.$router.push('/search')
     },
-    movePosting() {
+    upload(e) {
+      let file = e.target.files;
+      this.url = URL.createObjectURL(file[0]);
+      this.$store.commit("setImgURL", this.url);
       this.navNum = 2;
+      this.step = 1;
       this.$router.push('/regist')
     },
+    // movePosting() {
+    //   this.navNum = 2;
+    //   this.$router.push('/regist')
+    // },
     moveReels() {
       this.navNum = 3;
       this.$router.push('/reels')
@@ -51,6 +64,16 @@ export default {
 </script>
 
 <style scoped>
+
+.footer-button-plus {
+  width: 80px;
+  margin: auto;
+  text-align: center;
+  cursor: pointer;
+  font-size: 24px;
+  padding-top: 12px;
+}
+
 .footer {
   width: 100%;
   position: fixed;
