@@ -41,12 +41,15 @@
     <CardUser/>
     <CardUser/>
   </div>
-  <img class="icon" src="../../icon/grid.png" alt="프로필사진">
-  <img class="icon" src="../../icon/teg.png" alt="프로필사진">
+  <img class="icon" src="../../icon/grid.png" alt="프로필사진" @click="grid">
+  <img class="icon" src="../../icon/teg.png" alt="프로필사진" @click="calendar">
   <div class="container text-center">
-  <div class="row row-cols-3 images">
+  <div v-if="this.state == 0" class="row row-cols-3 images">
     <img v-for="i in 10" :key="i" src="../../icon/dog.jpg" class="col my-grid" alt="프로필사진">
     <img src="../../icon/dog.jpg" class="col my-grid" alt="프로필사진">
+  </div>
+  <div v-if="this.state == 1">
+    asd
   </div>
 </div>
 </template>
@@ -57,6 +60,7 @@ import CardUser from './CardUser.vue';
 export default {
   data() {
     return {
+      state:0,
       postNum : 213,
       follower : 58,
       following: 481,
@@ -64,6 +68,14 @@ export default {
   },
   components: {
     CardUser
+  },
+  methods : {
+    grid() {
+      this.state = 0;
+    },
+    calendar() {
+      this.state = 1;
+    }
   }
 }
 </script>
