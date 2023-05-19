@@ -19,6 +19,7 @@ export default {
 <style scoped>
 
 .header {
+  z-index: 99;
   width: 100%;
   height: 60px;
   background-color: white;

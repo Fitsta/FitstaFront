@@ -6,6 +6,8 @@ const store = createStore({
     return {
       imgURL:"",
       postList:[],
+      userList:[],
+      myProfile:{},
     }
   },
   getters: {
@@ -17,16 +19,33 @@ const store = createStore({
     },
     setPostList(state, payload) {
       state.postList = payload;
+    },
+    setUserList(state, payload) {
+      state.userList = payload;
+    },
+    setMyProfile(state, payload) {
+      state.myProfile = payload;
     }
   },
   actions: {
     getPostList() {
-      axios.get('./data/post.json')
+      axios.get('http://localhost:3000/posts')
       .then((result) => {
-        console.log(result)
-        // this.commit('setPostList', result.data);
+        this.commit('setPostList', result.data);
       })
     },
+    getUserList() {
+      axios.get('http://localhost:3000/users')
+      .then((result) => {
+        this.commit('setUserList', result.data);
+      })
+    },
+    getMyProfile() {
+      axios.get('http://localhost:3000/myProfile')
+      .then((result) => {
+        this.commit('setMyProfile', result.data);
+      })
+    }
   },
   modules:{
 

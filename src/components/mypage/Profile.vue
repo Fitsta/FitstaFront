@@ -3,7 +3,7 @@
     <img class="user-image" src="../../icon/me.png" alt="프로필사진">
     <div class="box">
       <div class="num first">
-        {{this.postNum}}
+        {{myProfile.postCount}}
       </div>
       <div class="category">
         게시물
@@ -11,7 +11,7 @@
     </div>
     <div class="box">
       <div class="num">
-        {{this.follower}}
+        {{myProfile.followerCount}}
       </div>
       <div class="category">
         팔로워
@@ -19,7 +19,7 @@
     </div>
     <div class="box">
       <div class="num">
-        {{this.following}}
+        {{myProfile.followingCount}}
       </div>
       <div class="category">
         팔로잉
@@ -27,7 +27,7 @@
     </div>
   </div>
   <div class="name">
-    지민성
+    {{ myProfile.userName }}
   </div>
   <button type="button" class="btn btn-light profile-btn">프로필 편집</button>
   <button type="button" class="btn btn-light profile-btn">프로필 공유</button>
@@ -35,11 +35,9 @@
     사람 찾아보기
   </div>
   <div class="container2 recommend">
-    <CardUser/>
-    <CardUser/>
-    <CardUser/>
-    <CardUser/>
-    <CardUser/>
+    <div v-for="(user, index) in myProfile.userList" :key="index">
+      <CardUser :user="user"/>
+    </div>
   </div>
   <img class="icon" src="../../icon/grid.png" alt="프로필사진" @click="grid">
   <img class="icon" src="../../icon/teg.png" alt="프로필사진" @click="calendar">
@@ -58,6 +56,7 @@
 
 <script>
 import CardUser from './CardUser.vue';
+import { mapState } from 'vuex';
 
 export default {
   data() {
@@ -78,6 +77,12 @@ export default {
     calendar() {
       this.state = 1;
     }
+  },
+  computed: {
+    ...mapState(['myProfile'])
+  },
+  created() {
+    this.$store.dispatch("getMyProfile");
   }
 }
 </script>

@@ -4,36 +4,34 @@
       <input type="text" class="form-control" placeholder="🔍 검색">
       <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
     </div>
-    <SearchUserComp/>
-    <SearchUserComp/>
-    <SearchUserComp/>
-    <SearchUserComp/>
-    <SearchUserComp/>
-    <SearchUserComp/>
-    <SearchUserComp/>
-    <SearchUserComp/>
-    <SearchUserComp/>
-    <SearchUserComp/>
-    <SearchUserComp/>
-    <SearchUserComp/>
-    <SearchUserComp/>
-    <SearchUserComp/>
+    <div class="userList">
+      <div v-for="(user, index) in userList" :key="index">
+        <SearchUserComp :user="user"/>
+      </div>
+    </div>
+    <br>
+    <br>
   </div>
 </template>
 
 <script>
 import SearchUserComp from './SearchUserComp.vue';
+import { mapState } from 'vuex';
+
 export default {
   components: {
     SearchUserComp,
   },
+  computed: {
+    ...mapState(['userList'])
+  },
+  created() {
+    this.$store.dispatch("getUserList")
+  }
 }
 </script>
 
 <style scoped>
-.input-search{
-  z-index: -1;
-}
 .content {
   margin-left: 10px;
   margin-right: 10px;

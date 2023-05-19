@@ -1,27 +1,31 @@
 <template>
   <div class="post">
     <div class="post-header">
-      <!-- <div class="profile" :style="{ backgroundImage : `url(https://placeimg.com/100/100/people)` }"></div> -->
-      <img class="profile" src="../../icon/dummyprofile.jpg"/>
-      <span class="profile-name">{{this.name}}</span>
+      <!-- profileImg -->
+      <img class="profile" :src="`${ post.profileImg }`"/>
+      <!-- userName -->
+      <span class="profile-name">{{ post.name }}</span>
     </div>
-    <!-- <div class="post-body" :style="{ backgroundImage : `url(https://placeimg.com/400/500/arch)` }"></div> -->
-      <img class="post-body" src="../../icon/dummy.jpeg"/>
+    <!-- postImg -->
+    <img class="post-body" :src="`${ post.postImg }`" />
     <div class="post-content">
-
-      <img v-if="this.isLike" class="post-icon" src="../../icon/up.png" @click="like">
+      <!-- 좋아요 -->
+      <img v-if="post.isLike" class="post-icon" src="../../icon/up.png" @click="like">
       <img v-else class="post-icon" src="../../icon/no_up.png" @click="like">
-
+      <!-- 댓글 -->
       <img class="post-icon-comment" src="../../icon/comment.png" @click="showComment">
+      <!-- DM -->
       <img class="post-icon" src="../../icon/dm.png" @click="showDM">
+      <!-- 북마크 -->
+      <!-- <img v-if="this.isBookMark" class="col-icon" src="../../icon/collectionBorder.png" @click="bookMark">
+      <img v-else class="col-icon" src="../../icon/collection.png" @click="bookMark"> -->
+      <!-- ... 버튼 누르면 수정 삭제 -->
 
-      <img v-if="this.isBookMark" class="col-icon" src="../../icon/collectionBorder.png" @click="bookMark">
-      <img v-else class="col-icon" src="../../icon/collection.png" @click="bookMark">
-
-      <p class="likes">좋아요 {{ this.likes }}개</p>
-      <p class="name">{{ this.name }} &nbsp; #오운완 #3대 500</p>
+      <!-- post info -->
+      <p class="likes">좋아요 {{ post.likeCount }}개</p>
+      <p class="name">{{ post.userName }} &nbsp; {{ post.comment }}</p>
       <!-- <p class="date">May 15</p> -->
-      <p class="date">댓글 {{ commentCount }}개 모두 보기</p>
+      <p class="date">댓글 {{ post.commentCount }}개 모두 보기</p>
     </div>
   </div> 
 </template>
@@ -30,16 +34,15 @@
 export default {
   data() {
     return {
-      name : "CheeseCake",
-      likes: 342,
-      isLike: false,
-      isBookMark: false,
-      commentCount:542,
+      // name : "CheeseCake",
+      // likes: 342,
+      // isLike: false,
+      // isBookMark: false,
+      // commentCount:542,
     }
   },
   props: {
-    info: Object,
-    index: Number,
+    post: Object,
   },
   methods: {
     showComment() {

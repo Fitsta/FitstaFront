@@ -1,7 +1,7 @@
 <template>
-  <Post/>
-  <Post/>
-  {{postList}}
+  <div v-for="(post, index) in postList" :key="index">
+    <Post :post="post"/>
+  </div>
   <br><br>
 </template>
 

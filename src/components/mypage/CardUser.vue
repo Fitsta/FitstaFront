@@ -1,17 +1,21 @@
 <template>
   <div class="card recommend-component item" style="width: 8rem; height: 13rem">
     <div class="card-body">
-      <img class="user-image2" src="../../icon/me.png" alt="프로필사진">
-      <p class="title">민성</p>
+      <img class="user-image2" :src="`${user.profileImg}`" alt="프로필사진">
+      <p class="title">{{ user.userName }}</p>
       <p class="text">&nbsp;회원님을 위한 추천</p>
-      <a class="btn btn-info follow">팔로우</a>
+
+      <a v-if="!user.isFollow" class="btn btn-info follow">follow</a>
+      <a v-else class="btn btn-secondary follow">unfollow</a>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-
+  props: {
+    user: Object,
+  },
 }
 </script>
 
