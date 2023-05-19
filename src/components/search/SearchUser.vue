@@ -13,17 +13,20 @@
     <br>
     <br>
   </div>
+  <Navbar/>
 </template>
 
 <script>
 import SearchUserComp from './SearchUserComp.vue';
 import Header from '../common/Header.vue'
+import Navbar from '../common/Navbar.vue'
 import { mapState } from 'vuex';
 
 export default {
   components: {
     Header,
     SearchUserComp,
+    Navbar,
   },
   computed: {
     ...mapState(['userList'])

@@ -1,16 +1,10 @@
 <template>
   <router-view/>
-  <Navbar/>
 </template>
 
 <script>
-import Navbar from './components/common/Navbar.vue'
-
 export default {
   name: 'App',
-  components : {
-    Navbar
-  }
 }
 </script>
 
@@ -18,6 +12,7 @@ export default {
 body {
   margin: 0;
 }
+
 #app {
   box-sizing: border-box;
   margin-top: 60px;

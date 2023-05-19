@@ -20,15 +20,18 @@
     <textarea class="form-control" rows="10" v-model="this.comment">
     </textarea>
   </div>
+  <Navbar/>
 </template>
 
 <script>
 import { mapState } from 'vuex';
 import Header from '../common/Header.vue'
+import Navbar from '../common/Navbar.vue'
 
 export default {
   components: {
-    Header
+    Header,
+    Navbar,
   },
   data() {
     return {

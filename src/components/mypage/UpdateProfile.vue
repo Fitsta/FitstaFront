@@ -1,4 +1,5 @@
 <template>
+  <Header />
   <div class="container">
     <img class="icon-cross" src="../../icon/back.png" @click="back">
     <img class="icon-check" src="../../icon/check.png" @click="update">
@@ -19,12 +20,19 @@
     </div>
   </div>
   <p class="input-item setting">개인정보 설정</p>
+  <Navbar/>
 </template>
 
 <script>
 import { mapState } from 'vuex';
+import Header from '../common/Header.vue'
+import Navbar from '../common/Navbar.vue'
 
 export default {
+  components: {
+    Header,
+    Navbar,
+  },
   computed: {
     ...mapState(['updateMyProfile'])
   },

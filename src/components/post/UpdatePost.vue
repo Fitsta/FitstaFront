@@ -24,15 +24,18 @@
   <br>
   <br>
   <br>
+  <Navbar/>
 </template>
 
 <script>
 import { mapState } from 'vuex';
 import Header from '../common/Header.vue'
+import Navbar from '../common/Navbar.vue'
 
 export default {
   components: {
     Header,
+    Navbar,
   },
   data() {
     return {

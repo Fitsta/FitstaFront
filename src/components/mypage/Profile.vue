@@ -47,20 +47,22 @@
   <img v-else class="icon" src="../../icon/calendar.png" alt="프로필사진" @click="calendar">
 
   <div class="container text-center">
-  <div v-if="this.state == 0" class="row row-cols-3 images">
-    <img v-for="(post, index) in myProfile.postList" :key="index" :src="post.postImg" class="col my-grid" alt="프로필사진">
-  </div>
-  <div v-if="this.state == 1">
-    <div class="calendar">
-      <VCalendar />
+    <div v-if="this.state == 0" class="row row-cols-3 images">
+      <img v-for="(post, index) in myProfile.postList" :key="index" :src="post.postImg" class="col my-grid" alt="프로필사진">
+    </div>
+    <div v-if="this.state == 1">
+      <div class="calendar">
+        <VCalendar />
+      </div>
     </div>
   </div>
-</div>
+  <Navbar />
 </template>
 
 <script>
 import CardUser from './CardUser.vue';
 import Header from '../common/Header.vue'
+import Navbar from '../common/Navbar.vue'
 import { mapState } from 'vuex';
 
 export default {
@@ -75,6 +77,7 @@ export default {
   components: {
     Header,
     CardUser,
+    Navbar,
   },
   methods : {
     grid() {

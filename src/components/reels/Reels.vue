@@ -15,14 +15,17 @@
   <!-- <button type="button" class="btn btn-info profile-btn" @click="next">다음영상</button> -->
   <!-- <img src="C:/Users/jimmy/Desktop/Fitstagram/front/fitstagram/src/icon/icon.png"/> -->
   <!-- {{this.sample}} -->
+  <Navbar />
 </template>
 
 <script>
 import Header from '../common/Header.vue'
+import Navbar from '../common/Navbar.vue'
 
 export default {
   components: {
     Header,
+    Navbar,
   },
   data() {
     return {

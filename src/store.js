@@ -10,6 +10,7 @@ const store = createStore({
       myProfile:{},
       updatePost:{},
       updateMyProfile:{},
+      navState:0,
     }
   },
   getters: {
@@ -34,6 +35,9 @@ const store = createStore({
     setUpdateProfile(state, payload) {
       state.updateMyProfile = payload;
     },
+    setNavState(state, payload) {
+      state.navState = payload;
+    }
   },
   actions: {
     getPostList() {
