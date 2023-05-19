@@ -9,6 +9,7 @@ const store = createStore({
       userList:[],
       myProfile:{},
       updatePost:{},
+      updateMyProfile:{},
     }
   },
   getters: {
@@ -30,6 +31,9 @@ const store = createStore({
     setUpdatePost(state, payload) {
       state.updatePost = payload;
     },
+    setUpdateProfile(state, payload) {
+      state.updateMyProfile = payload;
+    },
   },
   actions: {
     getPostList() {
@@ -49,7 +53,13 @@ const store = createStore({
       .then((result) => {
         this.commit('setMyProfile', result.data);
       })
-    }
+    },
+    getUpdateProfile() {
+      axios.get('http://localhost:3000/updateProfile')
+      .then((result) => {
+        this.commit('setUpdateProfile', result.data);
+      })
+    },
   },
   modules:{
 

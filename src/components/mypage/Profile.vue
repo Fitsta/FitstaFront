@@ -29,7 +29,7 @@
   <div class="name">
     {{ myProfile.userName }}
   </div>
-  <button type="button" class="btn btn-light profile-btn">프로필 편집</button>
+  <button type="button" class="btn btn-light profile-btn" @click="updateProfile">프로필 편집</button>
   <button type="button" class="btn btn-light profile-btn">프로필 공유</button>
   <div class="name">
     사람 찾아보기
@@ -79,6 +79,9 @@ export default {
     },
     calendar() {
       this.state = 1;
+    },
+    updateProfile() {
+      this.$router.push('/updateprofile')
     }
   },
   computed: {

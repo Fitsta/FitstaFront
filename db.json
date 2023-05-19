@@ -214,5 +214,11 @@
         "postImg": "https://placeimg.com/640/480/nature"
       }
     ] 
+  },
+  "updateProfile":{
+    "name": "지민성",
+    "email": "jiminsung@naver.com",
+    "nickName": "flourine",
+    "profileImg": "https://placeimg.com/640/480/nature"
   }
 }
