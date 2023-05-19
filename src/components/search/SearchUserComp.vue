@@ -5,8 +5,8 @@
       <div class="id">{{ user.userName }}</div>
       <div class="name">{{ user.Name }}</div>
     </div>
-    <button v-if="user.isFollow" type="button" class="btn btn-secondary follow mt-1" @click="follow">unfollow</button>
-    <button v-else type="button" class="btn btn-primary follow mt-1" @click="follow">follow</button>
+    <button v-if="user.isFollow" type="button" class="btn btn-secondary follow4 mt-1" @click="follow">unfollow</button>
+    <button v-else type="button" class="btn btn-light follow5 mt-1" @click="follow">follow</button>
   </div>
 </template>
 
@@ -31,8 +31,21 @@ export default {
 </script>
 
 <style scoped>
-.follow {
-  z-index: -1;
+.follow5 {
+  font-weight: bolder;
+  font-size: 13px;
+  border-color: #a99df0;
+  background-color: #a99df0;
+  padding-right: 1px;
+  padding-left: 1px;
+  width: 80px;
+  height: 40px;
+  position: absolute;
+  margin-left: 70%;
+}
+.follow4 {
+  font-weight: bolder;
+  font-size: 13px;
   padding-right: 1px;
   padding-left: 1px;
   width: 80px;
@@ -41,6 +54,7 @@ export default {
   margin-left: 70%;
 }
 .name {
+  font-size: 14px;
   font-weight: bolder;  
   color: rgb(122, 121, 121);
 }
@@ -50,6 +64,7 @@ export default {
 }
 
 .id {
+  font-size: 15px;
   font-weight: bolder;
 }
 

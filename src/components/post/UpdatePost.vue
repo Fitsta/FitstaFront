@@ -1,4 +1,5 @@
 <template>
+  <Header />
   <!-- 필터 선택 페이지 -->
   <div :class="updatePost.filter + ' upload-image'" :style="{ backgroundImage : `url(${updatePost.postImg})` }"></div>
   <div class="filters">
@@ -27,8 +28,12 @@
 
 <script>
 import { mapState } from 'vuex';
+import Header from '../common/Header.vue'
 
 export default {
+  components: {
+    Header,
+  },
   data() {
     return {
       filterList: ["","inkwell", "aden", "_1977", "brannan", "brooklyn", "clarendon", "earlybird", "gingham", "hudson", 

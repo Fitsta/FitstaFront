@@ -1,4 +1,5 @@
 <template>
+  <Header />
   <div class="container">
     <img class="user-image" src="../../icon/me.png" alt="프로필사진">
     <div class="box">
@@ -59,6 +60,7 @@
 
 <script>
 import CardUser from './CardUser.vue';
+import Header from '../common/Header.vue'
 import { mapState } from 'vuex';
 
 export default {
@@ -71,7 +73,8 @@ export default {
     }
   },
   components: {
-    CardUser
+    Header,
+    CardUser,
   },
   methods : {
     grid() {

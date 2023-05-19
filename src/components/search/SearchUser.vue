@@ -1,4 +1,5 @@
 <template>
+  <Header />
   <div class="content">
     <div class="input-group mb-4 mt-2 input-search">
       <input type="text" class="form-control" placeholder="🔍 검색">
@@ -16,10 +17,12 @@
 
 <script>
 import SearchUserComp from './SearchUserComp.vue';
+import Header from '../common/Header.vue'
 import { mapState } from 'vuex';
 
 export default {
   components: {
+    Header,
     SearchUserComp,
   },
   computed: {

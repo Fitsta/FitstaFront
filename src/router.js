@@ -6,7 +6,7 @@ import Reels from './components/reels/Reels.vue';
 import Profile from './components/mypage/Profile.vue';
 import UpdatePost from './components/post/UpdatePost.vue';
 import UpdateProfile from './components/mypage/UpdateProfile.vue';
-
+import Enter from './components/enter/Enter.vue'
 const routes = [
   {
     path: "/",
@@ -35,6 +35,10 @@ const routes = [
   {
     path: "/updateprofile",
     component: UpdateProfile
+  },
+  {
+    path: "/enter",
+    component: Enter
   }
 ];
 

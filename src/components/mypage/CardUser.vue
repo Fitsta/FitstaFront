@@ -5,8 +5,8 @@
       <p class="title">{{ user.userName }}</p>
       <p class="text">&nbsp;회원님을 위한 추천</p>
 
-      <a v-if="!user.isFollow" class="btn btn-info follow">follow</a>
-      <a v-else class="btn btn-secondary follow">unfollow</a>
+      <a v-if="!user.isFollow" class="btn btn-light follow1">follow</a>
+      <a v-else class="btn btn-secondary follow3">unfollow</a>
     </div>
   </div>
 </template>
@@ -29,7 +29,18 @@ export default {
   overflow:hidden;
   margin-right: 10px;
 }
-.follow {
+
+.follow1 {
+  font-weight: bolder;
+  border-color: #a99df0;
+  background-color: #a99df0;
+  font-size: 13px;
+  height: 19%;
+  width: 100%;
+  /* margin-left: %; */
+}
+
+.follow3 {
   font-size: 13px;
   height: 19%;
   width: 100%;

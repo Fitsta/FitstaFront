@@ -1,4 +1,5 @@
 <template>
+  <Header />
   <!-- 필터 선택 페이지 -->
   <div :class="currFilter + ' upload-image'" :style="{ backgroundImage : `url(${imgURL})` }"></div>
   <div class="filters">
@@ -23,8 +24,12 @@
 
 <script>
 import { mapState } from 'vuex';
+import Header from '../common/Header.vue'
 
 export default {
+  components: {
+    Header
+  },
   data() {
     return {
       comment:"",

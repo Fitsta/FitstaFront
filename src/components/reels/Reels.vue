@@ -1,4 +1,5 @@
 <template>
+  <Header />
   <!-- <iframe src="https://www.youtube.com/embed/Rrf8uQFvICE" width="412px" height=800px title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen> -->
 <!-- </iframe> -->
   <video muted autoplay loop controls class="video-box">
@@ -17,7 +18,12 @@
 </template>
 
 <script>
+import Header from '../common/Header.vue'
+
 export default {
+  components: {
+    Header,
+  },
   data() {
     return {
       // sample:"sample2.mp4",
@@ -44,7 +50,7 @@ export default {
 .video-text {
   color: aliceblue;
   position: fixed;
-  top: 6.5%;
+  top: 6.6%;
   margin-left: 88%;
   width: 100%; 
 }
