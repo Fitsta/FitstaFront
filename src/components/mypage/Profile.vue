@@ -49,7 +49,9 @@
     <img src="../../icon/dog.jpg" class="col my-grid" alt="프로필사진">
   </div>
   <div v-if="this.state == 1">
-    asd
+    <div class="calendar">
+      <VCalendar />
+    </div>
   </div>
 </div>
 </template>
@@ -60,7 +62,7 @@ import CardUser from './CardUser.vue';
 export default {
   data() {
     return {
-      state:0,
+      state:1,
       postNum : 213,
       follower : 58,
       following: 481,
@@ -81,6 +83,12 @@ export default {
 </script>
 
 <style scoped>
+.calendar {
+  margin-top: 7%;
+  margin-left: 27%;
+  margin-bottom: 25%;
+}
+
 .images {
   margin-top: 3%;
 }

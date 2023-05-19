@@ -6,7 +6,7 @@
       <span class="profile-name">{{this.name}}</span>
     </div>
     <!-- <div class="post-body" :style="{ backgroundImage : `url(https://placeimg.com/400/500/arch)` }"></div> -->
-      <img class="post-body" src="../../icon/dummypost.jpg"/>
+      <img class="post-body" src="../../icon/dummy.jpeg"/>
     <div class="post-content">
 
       <img v-if="this.isLike" class="post-icon" src="../../icon/up.png" @click="like">
@@ -19,7 +19,7 @@
       <img v-else class="col-icon" src="../../icon/collection.png" @click="bookMark">
 
       <p class="likes">좋아요 {{ this.likes }}개</p>
-      <p class="name">{{ this.name }} &nbsp; #Boxing #미추홀 복싱 클럽</p>
+      <p class="name">{{ this.name }} &nbsp; #오운완 #3대 500</p>
       <!-- <p class="date">May 15</p> -->
       <p class="date">댓글 {{ commentCount }}개 모두 보기</p>
     </div>

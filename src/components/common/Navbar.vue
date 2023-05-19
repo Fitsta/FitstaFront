@@ -41,7 +41,11 @@ export default {
     },
     upload(e) {
       let file = e.target.files;
-      this.url = URL.createObjectURL(file[0]);
+      try {
+        this.url = URL.createObjectURL(file[0]); 
+      } catch (error) {
+        console.log(error)
+      }
       this.$store.commit("setImgURL", this.url);
       this.navNum = 2;
       this.step = 1;

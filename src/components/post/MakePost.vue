@@ -45,7 +45,11 @@ export default {
     fire(event) {
       this.currFilter = event
     }
-  }
+  },
+  unmounted() {
+    this.$router.go(0);
+    // this.$forceUpdate();
+  },
 };
 </script>
 
@@ -71,6 +75,7 @@ export default {
 }
 
 .upload-image {
+  z-index: -1;
   width: 100%;
   height: 450px;
   background: cornflowerblue;
