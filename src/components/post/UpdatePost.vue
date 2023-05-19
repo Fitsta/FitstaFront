@@ -1,9 +1,9 @@
 <template>
   <!-- 필터 선택 페이지 -->
-  <div :class="currFilter + ' upload-image'" :style="{ backgroundImage : `url(${imgURL})` }"></div>
+  <div :class="updatePost.filter + ' upload-image'" :style="{ backgroundImage : `url(${updatePost.postImg})` }"></div>
   <div class="filters">
 
-  <div @click="fire(filter)" :class="filter + ' filter-item'" :style="`background-image:url(${imgURL})`" v-for="filter in filterList" :key="filter">
+  <div @click="fire(filter)" :class="filter + ' filter-item'" :style="`background-image:url(${updatePost.postImg})`" v-for="filter in filterList" :key="filter">
     <div class="filter-name">
       <p>{{ filter }}</p>
     </div>
@@ -12,13 +12,17 @@
   <div class="container mt-2 comment">
     <div class="publish">
       <h4>Comment</h4>
-      <button type="button" class="btn btn-sm publish-btn"
-        @click="publish"
-      >글 등록</button>
+      <button type="button" class="btn btn-sm btn-outline-info publish-btn"
+        @click="publish">글 수정</button>
     </div>
-    <textarea class="form-control" rows="10" v-model="this.comment">
+    <textarea class="form-control" rows="10" v-model="this.updatePost.comment">
     </textarea>
   </div>
+  <!-- {{updatePost}}
+  <br> -->
+  <br>
+  <br>
+  <br>
 </template>
 
 <script>
@@ -27,15 +31,13 @@ import { mapState } from 'vuex';
 export default {
   data() {
     return {
-      comment:"",
-      currFilter:"",
       filterList: ["","inkwell", "aden", "_1977", "brannan", "brooklyn", "clarendon", "earlybird", "gingham", "hudson", 
                "lark", "lofi", "mayfair", "moon", "nashville",
               "reyes", "rise", "slumber", "toaster", "valencia", "walden", "willow", "xpro2"],
     }
   },
   computed: {
-    ...mapState(['imgURL'])
+    ...mapState(['updatePost'])
   },
   methods: {
     publish() {
@@ -43,12 +45,11 @@ export default {
       this.$router.push('/')
     },
     fire(event) {
-      this.currFilter = event
+      this.updatePost.filter = event
     }
   },
   unmounted() {
     this.$router.go(0);
-    // this.$forceUpdate();
   },
 };
 </script>
@@ -80,7 +81,7 @@ export default {
 .upload-image {
   z-index: -1;
   width: 100%;
-  height: 450px;
+  height: 300px;
   background: cornflowerblue;
   background-size: cover;
 }

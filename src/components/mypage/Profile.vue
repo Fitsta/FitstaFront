@@ -39,12 +39,15 @@
       <CardUser :user="user"/>
     </div>
   </div>
-  <img class="icon" src="../../icon/grid.png" alt="프로필사진" @click="grid">
-  <img class="icon" src="../../icon/teg.png" alt="프로필사진" @click="calendar">
+  <img v-if="this.state == 0" class="icon2" src="../../icon/grid.png" alt="프로필사진" @click="grid">
+  <img v-else class="icon" src="../../icon/grid.png" alt="프로필사진" @click="grid">
+
+  <img v-if="this.state == 1" class="icon2" src="../../icon/calendar.png" alt="프로필사진" @click="calendar">
+  <img v-else class="icon" src="../../icon/calendar.png" alt="프로필사진" @click="calendar">
+
   <div class="container text-center">
   <div v-if="this.state == 0" class="row row-cols-3 images">
-    <img v-for="i in 10" :key="i" src="../../icon/dog.jpg" class="col my-grid" alt="프로필사진">
-    <img src="../../icon/dog.jpg" class="col my-grid" alt="프로필사진">
+    <img v-for="(post, index) in myProfile.postList" :key="index" :src="post.postImg" class="col my-grid" alt="프로필사진">
   </div>
   <div v-if="this.state == 1">
     <div class="calendar">
@@ -61,7 +64,7 @@ import { mapState } from 'vuex';
 export default {
   data() {
     return {
-      state:1,
+      state:0,
       postNum : 213,
       follower : 58,
       following: 481,
@@ -110,6 +113,14 @@ export default {
 .icon {
   margin-top: 4%;
   padding: 5px;
+  width : 35px;
+  margin-left: 23%;
+  margin-right: 14%;
+}
+
+.icon2 {
+  margin-top: 4%;
+  padding: 0px;
   width : 35px;
   margin-left: 23%;
   margin-right: 14%;

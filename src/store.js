@@ -8,6 +8,7 @@ const store = createStore({
       postList:[],
       userList:[],
       myProfile:{},
+      updatePost:{},
     }
   },
   getters: {
@@ -25,7 +26,10 @@ const store = createStore({
     },
     setMyProfile(state, payload) {
       state.myProfile = payload;
-    }
+    },
+    setUpdatePost(state, payload) {
+      state.updatePost = payload;
+    },
   },
   actions: {
     getPostList() {

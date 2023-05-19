@@ -8,16 +8,18 @@
       "likeCount": 831,
       "commentCount": 347,
       "comment" : "오늘 운동 맛있네",
+      "filter" : "_1977",
       "isLike" : true
     },
     {
       "postId": 2,
       "profileImg": "https://placeimg.com/100/100/animals",
-      "userName": "Flourine",
+      "userName": "fluorine",
       "postImg": "https://placeimg.com/640/480/nature",
       "likeCount": 831,
       "commentCount": 347,
       "comment" : "오운완 인증~~",
+      "filter" : "brannan",
       "isLike" : false
     }
   ],
@@ -202,12 +204,15 @@
       {
         "postId": 8,
         "postImg": "https://placeimg.com/640/480/nature"
+      },
+      {
+        "postId": 9,
+        "postImg": "https://placeimg.com/640/480/nature"
+      },
+      {
+        "postId": 10,
+        "postImg": "https://placeimg.com/640/480/nature"
       }
     ] 
-  },
-  "recommendUser" : [
-    {
-
-    }
-  ]
+  }
 }

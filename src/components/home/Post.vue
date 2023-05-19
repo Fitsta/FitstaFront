@@ -7,7 +7,8 @@
       <span class="profile-name">{{ post.name }}</span>
     </div>
     <!-- postImg -->
-    <img class="post-body" :src="`${ post.postImg }`" />
+    <div :class="post.filter + ' post-body'" :style="{ backgroundImage : `url(${post.postImg})` }"></div>
+    <!-- <img :class="post.filter + ' post-body'" :src="`${ post.postImg }`" /> -->
     <div class="post-content">
       <!-- 좋아요 -->
       <img v-if="post.isLike" class="post-icon" src="../../icon/up.png" @click="like">
@@ -19,7 +20,7 @@
       <!-- 수정, 삭제 드랍다운 -->
       <img class="col-icon dropdown-toggle" src="../../icon/menu.png" @click="bookMark" data-bs-toggle="dropdown" aria-expanded="false">
       <ul class="dropdown-menu">
-        <li><a class="dropdown-item" @click="updatePost">수정</a></li>
+        <li><a class="dropdown-item" @click="updatePost(post)">수정</a></li>
         <li><a class="dropdown-item" @click="deletePost">삭제</a></li>
       </ul>
       <!-- <img v-else class="col-icon" src="../../icon/collection.png" @click="bookMark"> -->
@@ -35,6 +36,8 @@
 </template>
 
 <script>
+import swal from 'sweetalert';
+
 export default {
   data() {
     return {
@@ -63,11 +66,21 @@ export default {
       }
       this.isLike = !this.isLike
     },
-    updatePost() {
-      console.log("update");
+    updatePost(payload) {
+      this.$store.commit("setUpdatePost", payload);
+      this.$router.push('/update')
     },
     deletePost() {
-      console.log("delete");
+      swal({
+        text: "정말로 삭제하시겠습니까?",
+        buttons: ["취소", "삭제"]
+      })
+      .then((willDelete) => {
+        // 삭제
+        if (willDelete) {
+          swal("삭제 완료!");
+        } 
+      });
     },
   }
 }
@@ -128,15 +141,15 @@ export default {
 }
 .post-body {
   /* background-image: url("https://placeimg.com/640/480/animals"); */
-  height: 450px;
+  /* height: 450px; */
   /* background-position: center;
   background-size: cover; */
 
   transform: translate(50, 50);
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  margin: auto;
+  /* width: 100%; */
+  height: 300px;
+  background: cornflowerblue;
+  background-size: cover;
 }
 .post-content {
   padding-left: 15px;
