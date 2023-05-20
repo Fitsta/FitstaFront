@@ -4,7 +4,7 @@
       <!-- profileImg -->
       <img class="profile" :src="`${ post.profileImg }`"/>
       <!-- userName -->
-      <span class="profile-name">{{ post.name }}</span>
+      <span class="profile-name">{{ post.userName }}</span>
     </div>
     <!-- postImg -->
     <div :class="post.filter + ' post-body'" :style="{ backgroundImage : `url(${post.postImg})` }"></div>
@@ -131,7 +131,7 @@ export default {
   display: block;
   float: left;
   padding-left: 10px;
-  padding-top: 7px;
+  padding-top: 4px;
   font-size: 14px;
 }
 .post-header {

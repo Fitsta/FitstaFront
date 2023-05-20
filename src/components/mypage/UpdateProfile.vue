@@ -90,11 +90,11 @@ export default {
   /* margin-right: 14%; */
 }
 .icon-check {
-  margin-top: -1.9%;
+  margin-top: 0%;
   margin-left: 77.5%;
   padding: 5px;
   width : 55px;
-  height: 55px;
+  height: 45px;
 }
 .publish-btn {
   margin: auto;

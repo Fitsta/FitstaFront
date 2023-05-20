@@ -35,8 +35,8 @@
   <div class="name">
     사람 찾아보기
   </div>
-  <div class="container2 recommend">
-    <div v-for="(user, index) in myProfile.userList" :key="index">
+  <div class="container2">
+    <div class="recommend" v-for="(user, index) in myProfile.userList" :key="index">
       <CardUser :user="user"/>
     </div>
   </div>

@@ -48,11 +48,14 @@ export default {
 }
 
 .title {
+  margin-top: 8%;
   text-align: center;
   font-weight: bolder;
+  font-size: 14px;
 }
 
 .text {
+  margin-top: -4%;
   font-weight: bolder;
   font-size: 6px;
   color: darkgray;
