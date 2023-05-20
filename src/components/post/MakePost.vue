@@ -58,6 +58,9 @@ export default {
     this.$router.go(0);
     // this.$forceUpdate();
   },
+  created() {
+    this.$store.commit("setNavState", 2)
+  }
 };
 </script>
 

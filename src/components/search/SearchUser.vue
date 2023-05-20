@@ -32,6 +32,7 @@ export default {
     ...mapState(['userList'])
   },
   created() {
+    this.$store.commit("setNavState", 1)
     this.$store.dispatch("getUserList")
   }
 }

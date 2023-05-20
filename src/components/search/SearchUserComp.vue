@@ -2,12 +2,13 @@
   <div class="container mb-4">
     <img class="user-image" :src="`${user.profileImg}`" alt="프로필사진">
     <div>
-      <div class="id">{{ user.userName }}</div>
-      <div class="name">{{ user.Name }}</div>
+      <div class="id">{{ user.nickname }}</div>
+      <div class="name">{{ user.name }}</div>
     </div>
-    <button v-if="user.isFollow" type="button" class="btn btn-secondary follow4 mt-1" @click="follow">unfollow</button>
+    <button v-if="user.follow" type="button" class="btn btn-secondary follow4 mt-1" @click="follow">unfollow</button>
     <button v-else type="button" class="btn btn-light follow5 mt-1" @click="follow">follow</button>
   </div>
+  <!-- {{user}} -->
 </template>
 
 <script>

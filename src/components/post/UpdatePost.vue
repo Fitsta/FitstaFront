@@ -1,10 +1,10 @@
 <template>
   <Header />
   <!-- 필터 선택 페이지 -->
-  <div :class="updatePost.filter + ' upload-image'" :style="{ backgroundImage : `url(${updatePost.postImg})` }"></div>
+  <div :class="updatePost.filter + ' upload-image'" :style="{ backgroundImage : `url(${updatePost.imgName})` }"></div>
   <div class="filters">
 
-  <div @click="fire(filter)" :class="filter + ' filter-item'" :style="`background-image:url(${updatePost.postImg})`" v-for="filter in filterList" :key="filter">
+  <div @click="fire(filter)" :class="filter + ' filter-item'" :style="`background-image:url(${updatePost.imgName})`" v-for="filter in filterList" :key="filter">
     <div class="filter-name">
       <p>{{ filter }}</p>
     </div>

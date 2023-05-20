@@ -1,7 +1,7 @@
 <template>
   <Header />
   <div class="container">
-    <img class="user-image" src="../../icon/me.png" alt="프로필사진">
+    <img class="user-image" :src="`${myProfile.profileImg}`" alt="프로필사진">
     <div class="box">
       <div class="num first">
         {{myProfile.postCount}}
@@ -95,6 +95,7 @@ export default {
   },
   created() {
     this.$store.dispatch("getMyProfile");
+    this.$store.commit("setNavState", 4)
   }
 }
 </script>

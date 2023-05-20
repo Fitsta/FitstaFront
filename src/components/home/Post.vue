@@ -7,7 +7,7 @@
       <span class="profile-name">{{ post.userName }}</span>
     </div>
     <!-- postImg -->
-    <div :class="post.filter + ' post-body'" :style="{ backgroundImage : `url(${post.postImg})` }"></div>
+    <div :class="post.filter + ' post-body'" :style="{ backgroundImage : `url(${post.imgName})` }"></div>
     <!-- <img :class="post.filter + ' post-body'" :src="`${ post.postImg }`" /> -->
     <div class="post-content">
       <!-- 좋아요 -->

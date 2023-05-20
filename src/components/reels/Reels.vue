@@ -41,6 +41,9 @@ export default {
       this.sample = "sample.mp4"
       console.log("next")
     }
+  },
+  created() {
+    this.$store.commit("setNavState", 3)
   }
 }
 </script>

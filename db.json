@@ -4,10 +4,10 @@
       "postId": 1,
       "profileImg": "https://placeimg.com/100/100/people",
       "userName": "poiu",
-      "postImg": "https://placeimg.com/640/480/animals",
+      "imgName": "https://placeimg.com/100/100/animals",
       "likeCount": 831,
       "commentCount": 347,
-      "comment" : "오늘 운동 맛있네",
+      "postComment" : "오늘 운동 맛있네",
       "filter" : "_1977",
       "isLike" : true
     },
@@ -15,10 +15,21 @@
       "postId": 2,
       "profileImg": "https://placeimg.com/100/100/animals",
       "userName": "fluorine",
-      "postImg": "https://placeimg.com/640/480/nature",
+      "imgName": "https://placeimg.com/100/100/animals",
       "likeCount": 831,
       "commentCount": 347,
-      "comment" : "오운완 인증~~",
+      "postComment" : "오운완 인증~~",
+      "filter" : "brannan",
+      "isLike" : false
+    },
+    {
+      "postId": 2,
+      "profileImg": "https://placeimg.com/100/100/animals",
+      "userName": "fluorine",
+      "imgName": "https://placeimg.com/100/100/animals",
+      "likeCount": 831,
+      "commentCount": 347,
+      "postComment" : "오운완 인증~~",
       "filter" : "brannan",
       "isLike" : false
     }
@@ -26,99 +37,99 @@
   "users": [
     {
       "profileImg": "https://placeimg.com/100/100/animals",
-      "userName": "fluorine",
-      "Name": "minsung",
-      "isFollow": false
+      "nickname": "fluorine",
+      "name": "minsung",
+      "follow": false
     },
     {
       "profileImg": "https://placeimg.com/100/100/animals",
-      "userName": "yun12343",
-      "Name": "seyun",
-      "isFollow": false
+      "nickname": "yun12343",
+      "name": "seyun",
+      "follow": false
     },
     {
       "profileImg": "https://placeimg.com/100/100/animals",
-      "userName": "tybam",
-      "Name": "tyeyoung",
-      "isFollow": false
+      "nickname": "tybam",
+      "name": "tyeyoung",
+      "follow": false
     },
     {
       "profileImg": "https://placeimg.com/100/100/animals",
-      "userName": "ljinho1001",
-      "Name": "jinho",
-      "isFollow": false
+      "nickname": "ljinho1001",
+      "name": "jinho",
+      "follow": false
     },
     {
       "profileImg": "https://placeimg.com/100/100/animals",
-      "userName": "zhddkfxks1",
-      "Name": "jiyeon",
-      "isFollow": true
+      "nickname": "zhddkfxks1",
+      "name": "jiyeon",
+      "follow": true
     },
     {
       "profileImg": "https://placeimg.com/100/100/animals",
-      "userName": "taekputer",
-      "Name": "giteak",
-      "isFollow": false
+      "nickname": "taekputer",
+      "name": "giteak",
+      "follow": false
     },
     {
       "profileImg": "https://placeimg.com/100/100/animals",
-      "userName": "tksgk2598",
-      "Name": "sanha",
-      "isFollow": false
+      "nickname": "tksgk2598",
+      "name": "sanha",
+      "follow": false
     },
     {
       "profileImg": "https://placeimg.com/100/100/animals",
-      "userName": "nayeon16",
-      "Name": "nayeon",
-      "isFollow": false
+      "nickname": "nayeon16",
+      "name": "nayeon",
+      "follow": false
     },
     {
       "profileImg": "https://placeimg.com/100/100/animals",
-      "userName": "engus5860",
-      "Name": "duhyun",
-      "isFollow": true
+      "nickname": "engus5860",
+      "name": "duhyun",
+      "follow": true
     },
     {
       "profileImg": "https://placeimg.com/100/100/animals",
-      "userName": "bigstar017",
-      "Name": "minsick",
-      "isFollow": false
+      "nickname": "bigstar017",
+      "name": "minsick",
+      "follow": false
     },
     {
       "profileImg": "https://placeimg.com/100/100/animals",
-      "userName": "myjade0416",
-      "Name": "seunghyun",
-      "isFollow": false
+      "nickname": "myjade0416",
+      "name": "seunghyun",
+      "follow": false
     },
     {
       "profileImg": "https://placeimg.com/100/100/animals",
-      "userName": "ddingddong",
-      "Name": "jihyun",
-      "isFollow": false
+      "nickname": "ddingddong",
+      "name": "jihyun",
+      "follow": false
     },
     {
       "profileImg": "https://placeimg.com/100/100/animals",
-      "userName": "dudgjs3043",
-      "Name": "younghun",
-      "isFollow": true
+      "nickname": "dudgjs3043",
+      "name": "younghun",
+      "follow": true
     },
     {
       "profileImg": "https://placeimg.com/100/100/animals",
-      "userName": "chahye",
-      "Name": "jieun",
-      "isFollow": true
+      "nickname": "chahye",
+      "name": "jieun",
+      "follow": true
     },
     {
       "profileImg": "https://placeimg.com/100/100/animals",
-      "userName": "poiu542",
+      "nickname": "poiu542",
       "Name": "youngin",
-      "isFollow": true
+      "follow": true
     },
     {
       "profileImg": "https://placeimg.com/100/100/animals",
-      "userName": "sdy5435",
+      "nickname": "sdy5435",
       "Name": "dayoung",
-      "isFollow": true
+      "follow": true
     }
   ],
   "myProfile": {
@@ -126,7 +137,7 @@
     "postCount": 412,
     "followerCount" : 354,
     "followingCount" : 846,
-    "profileImg" : "https://placeimg.com/100/100/people",
+    "profileImg" : "https://newsimg.hankookilbo.com/2019/08/01/201908010842397047_1.jpg",
     "userList" :[
       {
         "profileImg": "https://placeimg.com/100/100/animals",
@@ -174,44 +185,44 @@
     "postList": [
       {
         "postId": 1,
-        "postImg": "https://placeimg.com/640/480/animals"
+        "postImg": "https://placeimg.com/100/100/animals"
       },
       {
         "postId": 2,
-        "postImg": "https://placeimg.com/640/480/nature"
+        "postImg": "https://placeimg.com/100/100/animals"
       }
       ,
       {
         "postId": 3,
-        "postImg": "https://placeimg.com/640/480/nature"
+        "postImg": "https://placeimg.com/100/100/animals"
       },
       {
         "postId": 4,
-        "postImg": "https://placeimg.com/640/480/nature"
+        "postImg": "https://placeimg.com/100/100/animals"
       },
       {
         "postId": 5,
-        "postImg": "https://placeimg.com/640/480/nature"
+        "postImg": "https://placeimg.com/100/100/animals"
       },
       {
         "postId": 6,
-        "postImg": "https://placeimg.com/640/480/nature"
+        "postImg": "https://placeimg.com/100/100/animals"
       },
       {
         "postId": 7,
-        "postImg": "https://placeimg.com/640/480/nature"
+        "postImg": "https://placeimg.com/100/100/animals"
       },
       {
         "postId": 8,
-        "postImg": "https://placeimg.com/640/480/nature"
+        "postImg": "https://placeimg.com/100/100/animals"
       },
       {
         "postId": 9,
-        "postImg": "https://placeimg.com/640/480/nature"
+        "postImg": "https://placeimg.com/100/100/animals"
       },
       {
         "postId": 10,
-        "postImg": "https://placeimg.com/640/480/nature"
+        "postImg": "https://placeimg.com/100/100/animals"
       }
     ] 
   },

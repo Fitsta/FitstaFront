@@ -38,6 +38,7 @@ export default {
   },
   created() {
     this.$store.dispatch("getUpdateProfile")
+    this.$store.commit("setNavState", 4)
   },
   methods: {
     updatePicture() {

@@ -47,6 +47,7 @@ const store = createStore({
       })
     },
     getUserList() {
+      // axios.get('http://localhost:8080/api/review/detail')
       axios.get('http://localhost:3000/users')
       .then((result) => {
         this.commit('setUserList', result.data);
