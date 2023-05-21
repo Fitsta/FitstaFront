@@ -27,6 +27,7 @@
 import { mapState } from 'vuex';
 import Header from '../common/Header.vue'
 import Navbar from '../common/Navbar.vue'
+import axios from 'axios'
 
 export default {
   components: {
@@ -47,7 +48,26 @@ export default {
   },
   methods: {
     publish() {
-      console.log(this.comment)
+      // console.log(this.comment)
+
+      let form = new FormData();
+      const photoFile = this.$store.state.postImageFile;
+      form.append("images", photoFile);
+      form.append("userId", this.$store.state.loginUser.id);
+      form.append("postComment", this.comment);
+      form.append("filterName", this.currFilter);
+      
+      const url = 'http://localhost:8080/upload';
+      const config = {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      };
+      axios.post(url, form, config)
+      .then((response) => {
+        console.log(response)
+      })   
+      // 
       this.$router.push('/')
     },
     fire(event) {

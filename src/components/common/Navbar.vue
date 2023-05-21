@@ -41,15 +41,16 @@ export default {
       this.$router.push('/search')
     },
     upload(e) {
-      let file = e.target.files;
+      let file = e.target.files[0];
       try {
-        this.url = URL.createObjectURL(file[0]); 
+        this.url = URL.createObjectURL(file); 
       } catch (error) {
         console.log(error)
       }
+      this.$store.commit("setPostImageFile", file);
       this.$store.commit("setImgURL", this.url);
-      this.navNum = 2;
       this.$store.commit("setNavState", 2);
+      this.navNum = 2;
       this.step = 1;
       this.$router.push('/regist')
     },

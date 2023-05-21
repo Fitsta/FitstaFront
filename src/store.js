@@ -7,6 +7,7 @@ const store = createStore({
       imgURL:"",
       postList:[], //
       userPostList:[], //
+      postImageFile:"",
       userList:[],
       myProfile:{},
       updatePost:{},
@@ -34,6 +35,10 @@ const store = createStore({
     // Spring
     setUserPostList(state, payload) {
       state.userPostList = payload;
+    },
+    // 현재 포스팅 할때 업로드한 이미지파일 
+    setPostImageFile(state, payload) {
+      state.postImageFile = payload;
     },
     setUserList(state, payload) {
       state.userList = payload;

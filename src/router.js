@@ -8,6 +8,7 @@ import UpdatePost from './components/post/UpdatePost.vue';
 import UpdateProfile from './components/mypage/UpdateProfile.vue';
 import Enter from './components/enter/Enter.vue'
 import UserPostList from './components/home/UserPostList.vue'
+import Comment from './components/comment/Comment.vue';
 
 const routes = [
   {
@@ -45,6 +46,10 @@ const routes = [
   {
     path: "/detail/:id",
     component: UserPostList
+  },
+  {
+    path: "/comment/:id",
+    component: Comment
   }
 ];
 
