@@ -41,8 +41,6 @@ export default {
 .foot {
   margin-top: 60%;
   background-color: white;
-  /* margin: auto; */
-  /* display: block; */
   display: flex;
 }
 .kakao {

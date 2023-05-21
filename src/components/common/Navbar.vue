@@ -53,10 +53,6 @@ export default {
       this.step = 1;
       this.$router.push('/regist')
     },
-    // movePosting() {
-    //   this.navNum = 2;
-    //   this.$router.push('/regist')
-    // },
     moveReels() {
       this.navNum = 3;
       this.$store.commit("setNavState", 3);
@@ -103,19 +99,8 @@ export default {
   margin-right: 5.5%;
   margin-left: 5.5%;
 }
-/* .footer-button-plus {
-  width: 80px;
-  margin: auto;
-  text-align: center;
-  cursor: pointer;
-  font-size: 24px;
-  padding-top: 12px;
-} */
 
 .inputfile {
   display: none;
 }
-/* .input-plus {
-  cursor: pointer;
-} */
 </style>

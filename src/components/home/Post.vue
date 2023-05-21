@@ -4,21 +4,22 @@
       <!-- profileImg -->
       <img class="profile" :src="`${ post.profileImg }`"/>
       <!-- userName -->
-      <span class="profile-name">{{ post.userName }}</span>
+      <span class="profile-name" @click="detail(post.writerId)">{{ post.userName }}</span>
     </div>
     <!-- postImg -->
-    <div :class="post.filter + ' post-body'" :style="{ backgroundImage : `url(${post.imgName})` }"></div>
+    <div :class="post.filterName + ' post-body'" :style="{ backgroundImage : `url(${post.img})` }"></div>
     <!-- <img :class="post.filter + ' post-body'" :src="`${ post.postImg }`" /> -->
     <div class="post-content">
       <!-- 좋아요 -->
-      <img v-if="post.isLike" class="post-icon" src="../../icon/up.png" @click="like">
-      <img v-else class="post-icon" src="../../icon/no_up.png" @click="like">
+      <img v-if="post.like" class="post-icon" src="../../icon/up.png" @click="like(post.like)">
+      <img v-else class="post-icon" src="../../icon/no_up.png" @click="like(post.like)">
       <!-- 댓글 -->
-      <img class="post-icon-comment" src="../../icon/comment.png" @click="showComment">
+      <img class="post-icon-comment" src="../../icon/comment.png" @click="showComment(post.postId)">
       <!-- DM -->
       <img class="post-icon" src="../../icon/dm.png" @click="showDM">
       <!-- 수정, 삭제 드랍다운 -->
-      <img class="col-icon dropdown-toggle" src="../../icon/menu.png" @click="bookMark" data-bs-toggle="dropdown" aria-expanded="false">
+      <img v-if="post.writerId == this.$store.state.loginUser.id"
+        class="col-icon dropdown-toggle" src="../../icon/menu.png" @click="bookMark" data-bs-toggle="dropdown" aria-expanded="false">
       <ul class="dropdown-menu">
         <li><a class="dropdown-item" @click="updatePost(post)">수정</a></li>
         <li><a class="dropdown-item" @click="deletePost">삭제</a></li>
@@ -28,9 +29,9 @@
 
       <!-- post info -->
       <p class="likes">좋아요 {{ post.likeCount }}개</p>
-      <p class="name">{{ post.userName }} &nbsp; {{ post.comment }}</p>
-      <!-- <p class="date">May 15</p> -->
-      <p class="date">댓글 {{ post.commentCount }}개 모두 보기</p>
+      <p class="name" @click="detail(post.writerId)" >{{ post.userName }}</p>
+      <p class="name" @click="showComment(post.postId)">{{ post.postComment }}</p>
+      <p class="date" @click="showComment(post.postId)">댓글 {{ post.commentCount }}개 모두 보기</p>
     </div>
   </div> 
 </template>
@@ -39,32 +40,22 @@
 import swal from 'sweetalert';
 
 export default {
-  data() {
-    return {
-      // name : "CheeseCake",
-      // likes: 342,
-      // isLike: false,
-      // isBookMark: false,
-      // commentCount:542,
-    }
-  },
   props: {
     post: Object,
   },
   methods: {
-    showComment() {
-      console.log('showComment')
+    showComment(postId) {
+      console.log(postId + ' 댓글창 열기')
     },
     showDM() {
-      console.log('showDM')
+      console.log('DM창 열기')
     },
-    like() {
-      if (!this.isLike) {
-        this.likes++
+    like(isLike) {
+      if (!isLike) {
+        console.log("좋아요 누름!")
       } else {
-        this.likes--
+        console.log("좋아요 취소!")
       }
-      this.isLike = !this.isLike
     },
     updatePost(payload) {
       this.$store.commit("setUpdatePost", payload);
@@ -78,10 +69,14 @@ export default {
       .then((willDelete) => {
         // 삭제
         if (willDelete) {
+          // 
           swal("삭제 완료!");
         } 
       });
     },
+    detail(userId) {
+      this.$router.push('/detail/' + userId);
+    }
   }
 }
 </script>
@@ -140,13 +135,7 @@ export default {
   margin-bottom: 4.5%;
 }
 .post-body {
-  /* background-image: url("https://placeimg.com/640/480/animals"); */
-  /* height: 450px; */
-  /* background-position: center;
-  background-size: cover; */
-
   transform: translate(50, 50);
-  /* width: 100%; */
   height: 300px;
   background: cornflowerblue;
   background-size: cover;

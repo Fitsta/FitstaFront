@@ -19,8 +19,6 @@
     <textarea class="form-control" rows="10" v-model="this.updatePost.comment">
     </textarea>
   </div>
-  <!-- {{updatePost}}
-  <br> -->
   <br>
   <br>
   <br>

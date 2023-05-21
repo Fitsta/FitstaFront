@@ -8,7 +8,6 @@
     <button v-if="user.follow" type="button" class="btn btn-secondary follow4 mt-1" @click="follow">unfollow</button>
     <button v-else type="button" class="btn btn-light follow5 mt-1" @click="follow">follow</button>
   </div>
-  <!-- {{user}} -->
 </template>
 
 <script>

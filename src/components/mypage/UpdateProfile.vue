@@ -4,7 +4,7 @@
     <img class="icon-cross" src="../../icon/back.png" @click="back">
     <img class="icon-check" src="../../icon/check.png" @click="update">
   </div>
-  <img class="user-image" :src="`${updateMyProfile.profileImg}`" alt="프로필사진">
+  <img class="user-image" :src="`${loginUser.profileImg}`" alt="프로필사진">
   <br>
   <div class="box">
     <button type="button" class="btn btn-sm btn-outline publish-btn" @click="updatePicture">프로필 사진 수정</button>
@@ -12,11 +12,11 @@
   <div class="input-item">
     <div class="mb-3 mt-4">
       <label for="exampleFormControlInput1" class="form-label">Name</label>
-      <input type="text" class="form-control" v-model="updateMyProfile.name">
+      <input type="text" class="form-control" v-model="loginUser.name">
     </div>
     <div class="mb-3 mt-4">
       <label for="exampleFormControlInput1" class="form-label">Nickname</label>
-      <input type="text" class="form-control" v-model="updateMyProfile.nickName">
+      <input type="text" class="form-control" v-model="loginUser.nickname">
     </div>
   </div>
   <p class="input-item setting">개인정보 설정</p>
@@ -34,10 +34,9 @@ export default {
     Navbar,
   },
   computed: {
-    ...mapState(['updateMyProfile'])
+    ...mapState(['loginUser'])
   },
   created() {
-    this.$store.dispatch("getUpdateProfile")
     this.$store.commit("setNavState", 4)
   },
   methods: {
@@ -49,7 +48,7 @@ export default {
     },
     update() {
       console.log(123)
-    }
+    },
   }
 }
 </script>
@@ -87,8 +86,6 @@ export default {
   padding: 5px;
   width : 35px;
   height: 35px;
-  /* margin-left: 23%; */
-  /* margin-right: 14%; */
 }
 .icon-check {
   margin-top: 0%;

@@ -48,7 +48,9 @@
 
   <div class="container text-center">
     <div v-if="this.state == 0" class="row row-cols-3 images">
-      <img v-for="(post, index) in myProfile.postList" :key="index" :src="post.postImg" class="col my-grid" alt="프로필사진">
+      <img 
+        @click="detail"
+        v-for="(post, index) in myProfile.postList" :key="index" :src="post.postImg" class="col my-grid" alt="프로필사진">
     </div>
     <div v-if="this.state == 1">
       <div class="calendar">
@@ -88,6 +90,9 @@ export default {
     },
     updateProfile() {
       this.$router.push('/updateprofile')
+    },
+    detail() {
+      this.$router.push('/detail/' + this.$store.state.loginUser.id);
     }
   },
   computed: {
@@ -150,7 +155,6 @@ export default {
 .name {
   margin-top: 2%;
   margin-left: 5.6%;
-  /* font-size: 16px; */
   font-weight: bolder;
 }
 

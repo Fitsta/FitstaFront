@@ -34,6 +34,5 @@ export default {
   padding: 3px;
   width : 35px;
   margin-right: 6%;
-  /* margin-left: 4%; */
 }
 </style>

@@ -5,12 +5,19 @@ const store = createStore({
   state() {
     return {
       imgURL:"",
-      postList:[],
+      postList:[], //
+      userPostList:[], //
       userList:[],
       myProfile:{},
       updatePost:{},
       updateMyProfile:{},
       navState:0,
+      loginUser:{
+        id: 2,
+        name: "minsung",
+        nickname: "flourine",
+        profileImg: "https://newsimg.hankookilbo.com/2019/08/01/201908010842397047_1.jpg",
+      },
     }
   },
   getters: {
@@ -20,8 +27,13 @@ const store = createStore({
     setImgURL(state, payload) {
       state.imgURL = payload;
     },
+    // Spring
     setPostList(state, payload) {
       state.postList = payload;
+    },
+    // Spring
+    setUserPostList(state, payload) {
+      state.userPostList = payload;
     },
     setUserList(state, payload) {
       state.userList = payload;
@@ -32,22 +44,26 @@ const store = createStore({
     setUpdatePost(state, payload) {
       state.updatePost = payload;
     },
-    setUpdateProfile(state, payload) {
-      state.updateMyProfile = payload;
-    },
     setNavState(state, payload) {
       state.navState = payload;
     }
   },
   actions: {
+    // 메인화면 포스트 가져오기
     getPostList() {
-      axios.get('http://localhost:3000/posts')
+      axios.get('http://localhost:8080/api/postInfo/' + this.state.loginUser.id)
       .then((result) => {
         this.commit('setPostList', result.data);
       })
     },
+    // 특정 유저의 게시글 가져오기
+    getUserPostList(context, writerId) {
+      axios.get('http://localhost:8080/api/postInfo/detail/' + writerId)
+      .then((result) => {
+        this.commit('setUserPostList', result.data);
+      })
+    },
     getUserList() {
-      // axios.get('http://localhost:8080/api/review/detail')
       axios.get('http://localhost:3000/users')
       .then((result) => {
         this.commit('setUserList', result.data);

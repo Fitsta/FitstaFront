@@ -5,8 +5,8 @@
       "profileImg": "https://placeimg.com/100/100/people",
       "userName": "poiu",
       "imgName": "https://placeimg.com/100/100/animals",
-      "likeCount": 831,
-      "commentCount": 347,
+      "likeCount": 331,
+      "commentCount": 37,
       "postComment" : "오늘 운동 맛있네",
       "filter" : "_1977",
       "isLike" : true
@@ -16,8 +16,8 @@
       "profileImg": "https://placeimg.com/100/100/animals",
       "userName": "fluorine",
       "imgName": "https://placeimg.com/100/100/animals",
-      "likeCount": 831,
-      "commentCount": 347,
+      "likeCount": 561,
+      "commentCount": 31,
       "postComment" : "오운완 인증~~",
       "filter" : "brannan",
       "isLike" : false
@@ -27,8 +27,8 @@
       "profileImg": "https://placeimg.com/100/100/animals",
       "userName": "fluorine",
       "imgName": "https://placeimg.com/100/100/animals",
-      "likeCount": 831,
-      "commentCount": 347,
+      "likeCount": 681,
+      "commentCount": 147,
       "postComment" : "오운완 인증~~",
       "filter" : "brannan",
       "isLike" : false
@@ -133,7 +133,7 @@
     }
   ],
   "myProfile": {
-    "userName": "flourine",
+    "userName" : "flourine",
     "postCount": 412,
     "followerCount" : 354,
     "followingCount" : 846,

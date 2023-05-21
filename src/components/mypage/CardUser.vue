@@ -37,14 +37,12 @@ export default {
   font-size: 13px;
   height: 19%;
   width: 100%;
-  /* margin-left: %; */
 }
 
 .follow3 {
   font-size: 13px;
   height: 19%;
   width: 100%;
-  /* margin-left: %; */
 }
 
 .title {

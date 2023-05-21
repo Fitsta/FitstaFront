@@ -7,6 +7,8 @@ import Profile from './components/mypage/Profile.vue';
 import UpdatePost from './components/post/UpdatePost.vue';
 import UpdateProfile from './components/mypage/UpdateProfile.vue';
 import Enter from './components/enter/Enter.vue'
+import UserPostList from './components/home/UserPostList.vue'
+
 const routes = [
   {
     path: "/",
@@ -39,6 +41,10 @@ const routes = [
   {
     path: "/enter",
     component: Enter
+  },
+  {
+    path: "/detail/:id",
+    component: UserPostList
   }
 ];
 

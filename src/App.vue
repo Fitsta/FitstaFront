@@ -20,7 +20,5 @@ body {
   max-width: 460px;
   margin: auto;
   position: relative;
-  /* border-right: 1px solid #eee; */
-  /* border-left: 1px solid #eee; */
 }
 </style>
