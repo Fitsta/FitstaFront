@@ -31,7 +31,7 @@
     {{ myProfile.userName }}
   </div>
   <button type="button" class="btn btn-light profile-btn" @click="updateProfile">프로필 편집</button>
-  <button type="button" class="btn btn-light profile-btn">프로필 공유</button>
+  <button type="button" class="btn btn-light profile-btn">포스팅 관리</button>
   <div class="name">
     사람 찾아보기
   </div>

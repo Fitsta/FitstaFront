@@ -57,7 +57,7 @@ export default {
       form.append("postComment", this.comment);
       form.append("filterName", this.currFilter);
       
-      const url = 'http://localhost:8080/upload';
+      const url = process.env.VUE_APP_API_URL + "upload";
       const config = {
         headers: {
           'Content-Type': 'multipart/form-data'
@@ -67,8 +67,7 @@ export default {
       .then((response) => {
         console.log(response)
       })   
-      // 
-      this.$router.push('/')
+      this.$router.push('/detail/' + this.$store.state.loginUser.id);
     },
     fire(event) {
       this.currFilter = event

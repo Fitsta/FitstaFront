@@ -5,12 +5,11 @@ const store = createStore({
   state() {
     return {
       imgURL:"",
-      postList:[], //
-      // userPostList:[], //
+      postList:[],
       postImageFile:"",
+      updatePost:{},
       userList:[],
       myProfile:{},
-      updatePost:{},
       updateMyProfile:{},
       navState:0,
       loginUser:{
@@ -32,10 +31,6 @@ const store = createStore({
     setPostList(state, payload) {
       state.postList = payload;
     },
-    // // Spring
-    // setUserPostList(state, payload) {
-    //   state.userPostList = payload;
-    // },
     // 현재 포스팅 할때 업로드한 이미지파일 
     setPostImageFile(state, payload) {
       state.postImageFile = payload;
@@ -45,9 +40,6 @@ const store = createStore({
     },
     setMyProfile(state, payload) {
       state.myProfile = payload;
-    },
-    setUpdatePost(state, payload) {
-      state.updatePost = payload;
     },
     setNavState(state, payload) {
       state.navState = payload;
@@ -63,11 +55,17 @@ const store = createStore({
     // 좋아요
     setLike(state, payload) {
       state.postList[payload].like = !state.postList[payload].like;
+      state.postList[payload].likeCount = state.postList[payload].likeCount + 1;
     },
     // 좋아요 취소
     setDislike(state, payload) {
       state.postList[payload].like = !state.postList[payload].like;
+      state.postList[payload].likeCount = state.postList[payload].likeCount - 1;
     },
+    // 게시글 수정
+    setUpdatePost(state, payload) {
+      state.updatePost = payload;
+    }
   },
   actions: {
     // 메인화면 포스트 가져오기
@@ -141,6 +139,7 @@ const store = createStore({
       const config = {"Content-Type": 'application/json'};
       axios.post(url, data, config)
     },
+    // 게시글 삭제
     deletePoatHome(context, payload) {
       const url = process.env.VUE_APP_API_URL + 'api/post/' + payload;
       axios.delete(url)
@@ -148,6 +147,7 @@ const store = createStore({
         this.dispatch('getPostList');
       })
     },
+    // 게시글 삭제
     deletePoatUser(context, payload) {
       const url = process.env.VUE_APP_API_URL + 'api/post/' + payload;
       axios.delete(url)
@@ -155,6 +155,19 @@ const store = createStore({
         this.dispatch('getUserPostList', this.state.loginUser.id);
       })
     },
+    // 게시글 수정할때 조회
+    getUpdatePost(context, payload) {
+      console.log(123)
+      const url = process.env.VUE_APP_API_URL + 'api/post/' + payload;
+      axios.get(url)
+      .then((result) => {
+        this.commit('setUpdatePost', result.data);
+        console.log(result.data)
+      })
+    },
+
+
+
     getMyProfile() {
       axios.get('http://localhost:3000/myProfile')
       .then((result) => {

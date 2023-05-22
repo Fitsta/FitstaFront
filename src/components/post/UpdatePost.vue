@@ -1,10 +1,9 @@
 <template>
   <Header />
   <!-- 필터 선택 페이지 -->
-  <div :class="updatePost.filter + ' upload-image'" :style="{ backgroundImage : `url(${updatePost.imgName})` }"></div>
+  <div :class="updatePost.filterName + ' upload-image'" :style="{ backgroundImage : `url(${updatePost.img})` }"></div>
   <div class="filters">
-
-  <div @click="fire(filter)" :class="filter + ' filter-item'" :style="`background-image:url(${updatePost.imgName})`" v-for="filter in filterList" :key="filter">
+  <div @click="fire(filter)" :class="filter + ' filter-item'" :style="`background-image:url(${updatePost.img})`" v-for="filter in filterList" :key="filter">
     <div class="filter-name">
       <p>{{ filter }}</p>
     </div>
@@ -13,10 +12,11 @@
   <div class="container mt-2 comment">
     <div class="publish">
       <h4>Comment</h4>
-      <button type="button" class="btn btn-sm btn-outline-info publish-btn"
-        @click="publish">글 수정</button>
+      <input @change="upload" type="file" id="my-input" class="inputfile" />
+      <button class="btn btn-sm btn-outline-light publish-btn first" @click="onClickUpload">사진 수정</button>
+      <button class="btn btn-sm btn-outline-info publish-btn second" @click="publish">수정 완료</button>
     </div>
-    <textarea class="form-control" rows="10" v-model="this.updatePost.comment">
+    <textarea class="form-control" rows="10" v-model="updatePost.postComment">
     </textarea>
   </div>
   <br>
@@ -26,6 +26,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import { mapState } from 'vuex';
 import Header from '../common/Header.vue'
 import Navbar from '../common/Navbar.vue'
@@ -42,27 +43,82 @@ export default {
               "reyes", "rise", "slumber", "toaster", "valencia", "walden", "willow", "xpro2"],
     }
   },
-  computed: {
-    ...mapState(['updatePost'])
-  },
   methods: {
+    onClickUpload() {
+      let myInput = document.getElementById("my-input");
+      myInput.click();
+    },
+    upload(e) {
+      let file = e.target.files[0];
+      try {
+        this.url = URL.createObjectURL(file); 
+      } catch (error) {
+        console.log(error)
+      }
+      this.updatePost.img = this.url;
+      this.$store.commit("setPostImageFile", file);
+      this.$store.commit("setImgURL", this.url);
+    },
     publish() {
-      console.log(this.comment)
-      this.$router.push('/')
+      let form = new FormData();
+
+      const photoFile = this.$store.state.postImageFile;
+      form.append("images", photoFile);
+      form.append("userId", this.$store.state.loginUser.id);
+      form.append("postId", this.$route.params.id);
+      form.append("postComment", this.updatePost.postComment);
+      form.append("filterName", this.updatePost.filterName);
+      
+      const url = process.env.VUE_APP_API_URL + "upload/update";
+      const config = {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      };
+      axios.post(url, form, config)
+      .then((response) => {
+        console.log(response)
+      })   
+      this.$router.push('/detail/' + this.$store.state.loginUser.id);
     },
     fire(event) {
-      this.updatePost.filter = event
+      this.updatePost.filterName = event
     }
+  },
+  computed: {
+    ...mapState(['updatePost'])
   },
   unmounted() {
     this.$router.go(0);
   },
+  created() {
+    this.$store.dispatch('getUpdatePost', this.$route.params.id);
+  }
 };
 </script>
 
 <style scoped>
+.first {
+  margin-left: 32.5%;
+}
+.second {
+  margin-left: 2%;
+}
+.icon-select {
+  padding: 1px;
+  width : 35px;
+  margin-right: 5.5%;
+  margin-left: 5.5%;
+}
+
+.inputfile {
+  display: none;
+  /* visibility: hidden; */
+}
+
 .publish-btn {
-  margin-left: 58.5%;
+  /* margin-left: 58.5%; */
+  /* margin: auto; */
   margin-bottom: 10px;
   color: #8974fc;
   border-color: #8974fc;

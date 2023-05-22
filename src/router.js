@@ -6,6 +6,7 @@ import Reels from './components/reels/Reels.vue';
 import Profile from './components/mypage/Profile.vue';
 import UpdatePost from './components/post/UpdatePost.vue';
 import UpdateProfile from './components/mypage/UpdateProfile.vue';
+import Login from './components/enter/Login.vue'
 import Enter from './components/enter/Enter.vue'
 import UserPostList from './components/home/UserPostList.vue'
 import Comment from './components/comment/Comment.vue';
@@ -32,12 +33,16 @@ const routes = [
     component: Profile
   },
   {
-    path: "/update",
+    path: "/update/:id",
     component: UpdatePost
   },
   {
     path: "/updateprofile",
     component: UpdateProfile
+  },
+  {
+    path: "/login",
+    component: Login
   },
   {
     path: "/enter",

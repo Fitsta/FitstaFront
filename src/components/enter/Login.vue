@@ -7,10 +7,8 @@
     <div class="mb-3 mt-4 login">
       <input type="password" class="form-control login-comp" placeholder="비밀번호">
     </div>
-    <div class="mb-3 mt-4 login">
-      <input type="password" class="form-control login-comp" placeholder="비밀번호 확인">
-    </div>
-    <button class="btn btn-primary login-btn" type="button">회원가입</button>  
+    <p class="find-pw">비밀번호를 잊으셨나요?</p>
+    <button class="btn btn-primary login-btn" type="button">로그인</button>  
   </div>
   <hr class="box line">
   <div class="or">
@@ -18,8 +16,8 @@
   </div>
   <img class="kakao" src="../../icon/kakao.jpg" @click="kakaoLogin">
   <div class="foot">
-    <div class="up">이미 계정이 있으신가요?</div>
-    <div class="down">로그인하기</div>
+    <div class="up">계정이 없으신가요?</div>
+    <div class="down">가입하기</div>
   </div>
   
 </template>
@@ -48,12 +46,12 @@ export default {
   color: #8974fc;
 }
 .up {
-  margin-left: 17%;
+  margin-left: 22.2%;
   font-weight: bold;
   color: rgb(124, 122, 122);
 }
 .foot {
-  margin-top: 53%;
+  margin-top: 60%;
   background-color: white;
   display: flex;
 }
@@ -68,7 +66,7 @@ export default {
   color: darkgrey;
   position: absolute;
   left: 44%;
-  top: 62.4%;
+  top: 59.2%;
   background-color: white;
   width: 50px;
   text-align: center;

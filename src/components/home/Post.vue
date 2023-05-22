@@ -11,8 +11,8 @@
     <!-- <img :class="post.filter + ' post-body'" :src="`${ post.postImg }`" /> -->
     <div class="post-content">
       <!-- 좋아요 -->
-      <img v-if="post.like" class="post-icon" src="../../icon/up.png" @click="likeClick">
-      <img v-else class="post-icon" src="../../icon/no_up.png" @click="disLikeClick">
+      <img v-if="post.like" class="post-icon" src="../../icon/up.png" @click="disLikeClick">
+      <img v-else class="post-icon" src="../../icon/no_up.png" @click="likeClick">
       <!-- 댓글 -->
       <img class="post-icon-comment" src="../../icon/comment.png" @click="showComment(post.postId)">
       <!-- DM -->
@@ -21,7 +21,7 @@
       <img v-if="post.writerId == this.$store.state.loginUser.id"
         class="col-icon dropdown-toggle" src="../../icon/menu.png" @click="bookMark" data-bs-toggle="dropdown" aria-expanded="false">
       <ul class="dropdown-menu">
-        <li><a class="dropdown-item" @click="updatePost(post)">수정</a></li>
+        <li><a class="dropdown-item" @click="updatePost">수정</a></li>
         <li><a class="dropdown-item" @click="deletePost">삭제</a></li>
       </ul>
       <!-- <img v-else class="col-icon" src="../../icon/collection.png" @click="bookMark"> -->
@@ -63,9 +63,8 @@ export default {
       this.$store.commit('setDislike', this.index);
     },
 
-    updatePost(payload) {
-      this.$store.commit("setUpdatePost", payload);
-      this.$router.push('/update')
+    updatePost() {
+      this.$router.push('/update/' + this.post.postId)
     },
 
     deletePost() {
