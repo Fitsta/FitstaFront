@@ -36,8 +36,8 @@
     사람 찾아보기
   </div>
   <div class="container2">
-    <div class="recommend" v-for="(user, index) in myProfile.userList" :key="index">
-      <CardUser :user="user"/>
+    <div class="recommend" v-for="(user, index) in userList" :key="index">
+      <CardUser :user="user" :index="index"/>
     </div>
   </div>
   <img v-if="this.state == 0" class="icon2" src="../../icon/grid.png" alt="프로필사진" @click="grid">
@@ -96,11 +96,13 @@ export default {
     }
   },
   computed: {
-    ...mapState(['myProfile'])
+    ...mapState(['myProfile']),
+    ...mapState(['userList']),
   },
   created() {
     this.$store.dispatch("getMyProfile");
     this.$store.commit("setNavState", 4)
+    this.$store.dispatch("getUserList")
   }
 }
 </script>

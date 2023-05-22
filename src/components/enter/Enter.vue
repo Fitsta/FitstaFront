@@ -14,16 +14,28 @@
   <div class="or">
     또는
   </div>
-  <img class="kakao" src="../../icon/kakao.jpg" height="55px">
+  <img class="kakao" src="../../icon/kakao.jpg" @click="kakaoLogin">
   <div class="foot">
     <div class="up">계정이 없으신가요?</div>
     <div class="down">가입하기</div>
   </div>
+  
 </template>
 
 <script>
-export default {
+import axios from 'axios';
 
+export default {
+  methods: {
+    kakaoLogin(){
+      axios.get(process.env.VUE_APP_API_URL + 'login')
+      .then((response) => {
+        // console.log(response.data)
+        // console.warn("warn : " + response);
+        window.location.href = response.data;
+      })
+    },
+  },
 }
 </script>
 
@@ -44,6 +56,7 @@ export default {
   display: flex;
 }
 .kakao {
+  height: 55px;
   margin-top: 2%;
   margin-left: 16%;
   border-radius: 13px;

@@ -11,8 +11,8 @@
     <!-- <img :class="post.filter + ' post-body'" :src="`${ post.postImg }`" /> -->
     <div class="post-content">
       <!-- 좋아요 -->
-      <img v-if="post.like" class="post-icon" src="../../icon/up.png" @click="like(post.like)">
-      <img v-else class="post-icon" src="../../icon/no_up.png" @click="like(post.like)">
+      <img v-if="post.like" class="post-icon" src="../../icon/up.png" @click="likeClick">
+      <img v-else class="post-icon" src="../../icon/no_up.png" @click="disLikeClick">
       <!-- 댓글 -->
       <img class="post-icon-comment" src="../../icon/comment.png" @click="showComment(post.postId)">
       <!-- DM -->
@@ -26,7 +26,6 @@
       </ul>
       <!-- <img v-else class="col-icon" src="../../icon/collection.png" @click="bookMark"> -->
       <!-- ... 버튼 누르면 수정 삭제 -->
-
       <!-- post info -->
       <p class="likes">좋아요 {{ post.likeCount }}개</p>
       <p class="name" @click="detail(post.writerId)" >{{ post.userName }}</p>
@@ -42,25 +41,33 @@ import swal from 'sweetalert';
 export default {
   props: {
     post: Object,
+    index: Number,
+    type: String,
   },
   methods: {
     showComment(postId) {
       console.log(postId + ' 댓글창 열기')
     },
+
     showDM() {
       console.log('DM창 열기')
     },
-    like(isLike) {
-      if (!isLike) {
-        console.log("좋아요 누름!")
-      } else {
-        console.log("좋아요 취소!")
-      }
+
+    likeClick() {
+      this.$store.dispatch('getLike', this.post.postId);
+      this.$store.commit('setLike', this.index);
     },
+
+    disLikeClick() {
+      this.$store.dispatch('getDislike', this.post.postId);
+      this.$store.commit('setDislike', this.index);
+    },
+
     updatePost(payload) {
       this.$store.commit("setUpdatePost", payload);
       this.$router.push('/update')
     },
+
     deletePost() {
       swal({
         text: "정말로 삭제하시겠습니까?",
@@ -69,7 +76,11 @@ export default {
       .then((willDelete) => {
         // 삭제
         if (willDelete) {
-          // 
+          if (this.type === 'home') {
+            this.$store.dispatch('deletePoatHome', this.post.postId);
+          } else {
+            this.$store.dispatch('deletePoatUser', this.post.postId);
+          }
           swal("삭제 완료!");
         } 
       });

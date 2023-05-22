@@ -2,18 +2,19 @@
   <Header />
   <div class="content">
     <div class="input-group mb-4 mt-2 input-search">
-      <input type="text" class="form-control" placeholder="🔍 검색">
-      <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+      <input type="text" class="form-control" placeholder="🔍 검색" v-model="this.keyword">
+      <button class="btn btn-outline-secondary" type="button" id="button-addon2" @click="search">Search</button>
     </div>
     <div class="userList">
       <div v-for="(user, index) in userList" :key="index">
-        <SearchUserComp :user="user"/>
+        <SearchUserComp :user="user" :index="index"/>
       </div>
     </div>
     <br>
     <br>
   </div>
   <Navbar/>
+
 </template>
 
 <script>
@@ -23,6 +24,11 @@ import Navbar from '../common/Navbar.vue'
 import { mapState } from 'vuex';
 
 export default {
+  data() {
+    return {
+      keyword:"" 
+    }
+  },
   components: {
     Header,
     SearchUserComp,
@@ -34,7 +40,12 @@ export default {
   created() {
     this.$store.commit("setNavState", 1)
     this.$store.dispatch("getUserList")
-  }
+  },
+  methods: {
+    search() {
+      this.$store.dispatch("getSearchUserList", this.keyword)
+    },
+  },
 }
 </script>
 

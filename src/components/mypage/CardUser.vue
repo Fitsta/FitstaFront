@@ -2,11 +2,10 @@
   <div class="card recommend-component item" style="width: 8rem; height: 13rem">
     <div class="card-body">
       <img class="user-image2" :src="`${user.profileImg}`" alt="프로필사진">
-      <p class="title">{{ user.userName }}</p>
+      <p class="title">{{ user.nickname }}</p>
       <p class="text">&nbsp;회원님을 위한 추천</p>
-
-      <a v-if="!user.isFollow" class="btn btn-light follow1">follow</a>
-      <a v-else class="btn btn-secondary follow3">unfollow</a>
+      <a v-if="user.follow" class="btn btn-light follow1" @click="unfollow1">unfollow</a>
+      <a v-else class="btn btn-secondary follow3" @click="follow1">follow</a>
     </div>
   </div>
 </template>
@@ -15,6 +14,17 @@
 export default {
   props: {
     user: Object,
+    index: Number,
+  },
+  methods : {
+    follow1() {
+      this.$store.dispatch("followAndGetUserList", this.user.userId)
+      this.$store.commit('follow', this.index)
+    },
+    unfollow1() {
+      this.$store.dispatch("unFollowAndGetUserList", this.user.userId)
+      this.$store.commit('unfollow', this.index)
+    }
   },
 }
 </script>

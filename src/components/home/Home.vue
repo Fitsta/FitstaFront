@@ -1,7 +1,7 @@
 <template>
   <Header />
   <div v-for="(post, index) in postList" :key="index">
-    <Post :post="post"/>
+    <Post :post="post" :index="index" :type="`home`"/>
   </div>
   <Navbar/>
   <br><br>

@@ -5,7 +5,7 @@
       <div class="id">{{ user.nickname }}</div>
       <div class="name">{{ user.name }}</div>
     </div>
-    <button v-if="user.follow" type="button" class="btn btn-secondary follow4 mt-1" @click="follow">unfollow</button>
+    <button v-if="user.follow" type="button" class="btn btn-secondary follow4 mt-1" @click="unfollow">unfollow</button>
     <button v-else type="button" class="btn btn-light follow5 mt-1" @click="follow">follow</button>
   </div>
 </template>
@@ -14,18 +14,20 @@
 
 
 export default {
-  data() {
-    return {
-      isFollow: false,      
-    }
-  },
+
   methods : {
     follow() {
-      this.isFollow = !this.isFollow
+      this.$store.dispatch("followAndGetUserList", this.user.userId)
+      this.$store.commit('follow', this.index)
     },
+    unfollow() {
+      this.$store.dispatch("unFollowAndGetUserList", this.user.userId)
+      this.$store.commit('unfollow', this.index)
+    }
   },
   props: {
     user: Object,
+    index: Number,
   },
 }
 </script>
