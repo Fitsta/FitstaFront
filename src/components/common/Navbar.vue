@@ -1,5 +1,5 @@
 <template>
-  <div class="footer">
+  <div v-if="this.$store.state.navState !== 3"  class="footer">
     <img v-if="this.$store.state.navState === 0" class="icon first" src="../../icon/mainBorder.png" @click="moveHome">
     <img v-else class="icon first" src="../../icon/main.png" @click="moveHome">
 
@@ -17,7 +17,25 @@
 
     <img v-if="this.$store.state.navState === 4" class="icon-select" src="../../icon/up.png" @click="moveProfile">
     <img v-else class="icon" src="../../icon/up.png" @click="moveProfile">
+  </div>
+  <div v-else class="footer">
+    <img v-if="this.$store.state.navState === 0" class="icon first" src="../../icon/mainBorder.png" @click="moveHome">
+    <img v-else class="icon first" src="../../icon/r_main.png" @click="moveHome">
 
+    <img v-if="this.$store.state.navState === 1" class="icon-select" src="../../icon/search.png" @click="moveSearch">
+    <img v-else class="icon" src="../../icon/r_search.png" @click="moveSearch">
+
+    <input @change="upload" type="file" id="file" class="inputfile" />
+    <label for="file" class="icon-select">
+      <img v-if="this.$store.state.navState === 2" class="icon-select" src="../../icon/post.png" @click="movePosting">
+      <img v-else class="icon" src="../../icon/r_post.png">  
+    </label>
+
+    <img v-if="this.$store.state.navState === 3" class="icon-select" src="../../icon/r_reels.png" @click="moveReels">
+    <img v-else class="icon" src="../../icon/r_reels.png" @click="moveReels">
+
+    <img v-if="this.$store.state.navState === 4" class="icon-select" src="../../icon/up.png" @click="moveProfile">
+    <img v-else class="icon" src="../../icon/up.png" @click="moveProfile">
   </div>
 </template>
 
@@ -33,7 +51,7 @@ export default {
     moveHome() {
       this.navNum = 0;
       this.$store.commit("setNavState", 0);
-      this.$router.push('/')
+      this.$router.push('/main')
     },
     moveSearch() {
       this.navNum = 1;

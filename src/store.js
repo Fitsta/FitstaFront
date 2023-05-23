@@ -74,14 +74,16 @@ const store = createStore({
   actions: {
     // 메인화면 포스트 가져오기
     getPostList() {
-      axios.get(process.env.VUE_APP_API_URL + 'api/postInfo/' + this.state.loginUser.id)
+      const url = process.env.VUE_APP_API_URL + 'api/postInfo/' + this.state.loginUser.id;
+      axios.get(url)
       .then((result) => {
         this.commit('setPostList', result.data);
       })
     },
     // 특정 유저의 게시글 가져오기
     getUserPostList(context, writerId) {
-      axios.get(process.env.VUE_APP_API_URL + 'api/postInfo/detail/' + writerId)
+      const url = process.env.VUE_APP_API_URL + 'api/postInfo/detail/' + writerId;
+      axios.get(url)
       .then((result) => {
         // this.commit('setUserPostList', result.data);
         this.commit('setPostList', result.data);
@@ -89,7 +91,8 @@ const store = createStore({
     },
     // 유저 검색화면 
     getUserList() {
-      axios.get(process.env.VUE_APP_API_URL + 'api/searchUser/' + this.state.loginUser.id)
+      const url = process.env.VUE_APP_API_URL + 'api/searchUser/' + this.state.loginUser.id;
+      axios.get(url)
       .then((result) => {
         this.commit('setUserList', result.data);
       })
