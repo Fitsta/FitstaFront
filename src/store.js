@@ -157,7 +157,6 @@ const store = createStore({
     },
     // 게시글 수정할때 조회
     getUpdatePost(context, payload) {
-      console.log(123)
       const url = process.env.VUE_APP_API_URL + 'api/post/' + payload;
       axios.get(url)
       .then((result) => {
@@ -165,19 +164,11 @@ const store = createStore({
         console.log(result.data)
       })
     },
-
-
-
-    getMyProfile() {
-      axios.get('http://localhost:3000/myProfile')
+    getMyProfile(context, payload) {
+      const url = process.env.VUE_APP_API_URL + 'api/profile/' + payload;
+      axios.get(url)
       .then((result) => {
         this.commit('setMyProfile', result.data);
-      })
-    },
-    getUpdateProfile() {
-      axios.get('http://localhost:3000/updateProfile')
-      .then((result) => {
-        this.commit('setUpdateProfile', result.data);
       })
     },
   },

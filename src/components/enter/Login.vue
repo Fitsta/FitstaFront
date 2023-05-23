@@ -17,7 +17,7 @@
   <img class="kakao" src="../../icon/kakao.jpg" @click="kakaoLogin">
   <div class="foot">
     <div class="up">계정이 없으신가요?</div>
-    <div class="down">가입하기</div>
+    <div class="down" @click="enter">가입하기</div>
   </div>
   
 </template>
@@ -35,6 +35,9 @@ export default {
         window.location.href = response.data;
       })
     },
+    enter() {
+      this.$router.push('/enter');
+    }
   },
 }
 </script>
@@ -78,8 +81,9 @@ export default {
 .find-pw {
   font-weight: bolder;
   color: #8974fc;
+  width: 100%;
   margin-top: 6%;
-  margin-left: 53%;
+  margin-left: 58%;
 }
 
 .login-btn {

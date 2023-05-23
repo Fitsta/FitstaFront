@@ -1,8 +1,8 @@
 <template>
   <div class="container mb-4">
-    <img class="user-image" :src="`${user.profileImg}`" alt="프로필사진">
+    <img class="user-image" :src="`${user.profileImg}`" alt="프로필사진" @click="detail(user.userId)">
     <div>
-      <div class="id">{{ user.nickname }}</div>
+      <div class="id" @click="detail(user.userId)">{{ user.nickname }}</div>
       <div class="name">{{ user.name }}</div>
     </div>
     <button v-if="user.follow" type="button" class="btn btn-secondary follow4 mt-1" @click="unfollow">unfollow</button>
@@ -23,6 +23,9 @@ export default {
     unfollow() {
       this.$store.dispatch("unFollowAndGetUserList", this.user.userId)
       this.$store.commit('unfollow', this.index)
+    },
+    detail(userId) {
+      this.$router.push('/detail/' + userId);
     }
   },
   props: {

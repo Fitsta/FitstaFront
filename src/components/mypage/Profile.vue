@@ -31,7 +31,7 @@
     {{ myProfile.userName }}
   </div>
   <button type="button" class="btn btn-light profile-btn" @click="updateProfile">프로필 편집</button>
-  <button type="button" class="btn btn-light profile-btn">포스팅 관리</button>
+  <button type="button" class="btn btn-light profile-btn" @click="detail">포스팅 관리</button>
   <div class="name">
     사람 찾아보기
   </div>
@@ -50,7 +50,7 @@
     <div v-if="this.state == 0" class="row row-cols-3 images">
       <img 
         @click="detail"
-        v-for="(post, index) in myProfile.postList" :key="index" :src="post.postImg" class="col my-grid" alt="프로필사진">
+        v-for="(post, index) in myProfile.postList" :key="index" :src="post.img" class="col my-grid" alt="프로필사진">
     </div>
     <div v-if="this.state == 1">
       <div class="calendar">
@@ -100,7 +100,7 @@ export default {
     ...mapState(['userList']),
   },
   created() {
-    this.$store.dispatch("getMyProfile");
+    this.$store.dispatch("getMyProfile", this.$store.state.loginUser.id);
     this.$store.commit("setNavState", 4)
     this.$store.dispatch("getUserList")
   }

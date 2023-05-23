@@ -80,7 +80,7 @@ export default {
           } else {
             this.$store.dispatch('deletePoatUser', this.post.postId);
           }
-          swal("삭제 완료!");
+          this.$toast.error(`포스팅이 삭제되었습니다.`, { position:"top",duration:2000 });
         } 
       });
     },

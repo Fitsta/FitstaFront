@@ -7,6 +7,7 @@
   <img class="user-image" :src="`${loginUser.profileImg}`" alt="프로필사진">
   <br>
   <div class="box">
+    <input @change="upload" type="file" id="my-input" class="inputfile" />
     <button type="button" class="btn btn-sm btn-outline publish-btn" @click="updatePicture">프로필 사진 수정</button>
   </div>
   <div class="input-item">
@@ -41,7 +42,8 @@ export default {
   },
   methods: {
     updatePicture() {
-      console.log(123)
+      let myInput = document.getElementById("my-input");
+      myInput.click();
     },
     back() {
       this.$router.go(-1)
@@ -54,6 +56,10 @@ export default {
 </script>
 
 <style scoped>
+.inputfile {
+  display: none;
+  /* visibility: hidden; */
+}
 .setting {
   font-weight: bolder;
   color: #8974fc;

@@ -66,7 +66,8 @@ export default {
       axios.post(url, form, config)
       .then((response) => {
         console.log(response)
-      })   
+      })
+      this.$toast.success(`포스팅이 등록되었습니다.`, { position:"top",duration:2000 });
       this.$router.push('/detail/' + this.$store.state.loginUser.id);
     },
     fire(event) {

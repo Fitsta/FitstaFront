@@ -2,10 +2,10 @@
   <Header />
   <div class="big-container">
     <div class="container">
-      <img class="user-image" :src="`https://fitsta-bucket.s3.ap-northeast-2.amazonaws.com/d9885b29-1d09-4f2b-9254-b51b143df4b6-dog.jpg`" alt="프로필사진">
+      <img class="user-image" :src="`${myProfile.profileImg}`" alt="프로필사진">
       <div class="box">
         <div class="num first">
-          234
+          {{myProfile.postCount}}
         </div>
         <div class="category">
           게시물
@@ -13,7 +13,7 @@
       </div>
       <div class="box">
         <div class="num">
-          689
+          {{myProfile.followerCount}}
         </div>
         <div class="category">
           팔로워
@@ -21,16 +21,15 @@
       </div>
       <div class="box">
         <div class="num">
-          456
+          {{myProfile.followingCount}}
         </div>
         <div class="category">
           팔로잉
         </div>
       </div>
     </div>
-    <!-- <div class="name">
-      flourine
-    </div> -->
+    <div class="name">
+    </div>
     <hr>
   </div>
   <div v-for="(post, index) in postList" :key="index">
@@ -53,12 +52,12 @@ export default {
     Navbar,
   },
   computed: {
-    // ...mapState(['userPostList'])
+    ...mapState(['myProfile']),
     ...mapState(['postList'])
   },
   created() {
     const id = this.$route.params.id;
-    // this.$store.dispatch('getUserPostList', id);
+    this.$store.dispatch("getMyProfile", id);
     this.$store.dispatch('getUserPostList', id);
   },
 }
