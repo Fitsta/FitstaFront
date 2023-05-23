@@ -9,12 +9,13 @@ import UpdatePost from './components/post/UpdatePost.vue';
 import UpdateProfile from './components/mypage/UpdateProfile.vue';
 import Login from './components/enter/Login.vue'
 import Enter from './components/enter/Enter.vue'
+import Kakao from './components/enter/Kakao.vue'
 import UserPostList from './components/home/UserPostList.vue'
 import Comment from './components/comment/Comment.vue';
 
 const routes = [
   {
-    path: "/",
+    path: "/main",
     component: Home
   },
   {
@@ -51,6 +52,7 @@ const routes = [
   },
   {
     path: "/enter",
+    alias:["/","/enter"],
     component: Enter
   },
   {
@@ -60,6 +62,10 @@ const routes = [
   {
     path: "/comment/:id",
     component: Comment
+  },
+  {
+    path: "/kakao/:id",
+    component: Kakao
   }
 ];
 

@@ -63,6 +63,7 @@ export default {
         const loginData = JSON.stringify(result.data);
         sessionStorage.setItem("loginUser", loginData)
         // console.log(result.data)
+        this.$router.push('/main');
       })
       .catch(() => {
         this.$toast.error(`로그인에 실패했습니다`, { position:"top",duration:2000 });

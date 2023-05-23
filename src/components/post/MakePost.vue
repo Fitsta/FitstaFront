@@ -75,7 +75,7 @@ export default {
     }
   },
   unmounted() {
-    this.$router.go(0);
+    // this.$router.go(0);
     // this.$forceUpdate();
   },
   created() {

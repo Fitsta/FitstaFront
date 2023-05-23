@@ -59,7 +59,8 @@ export default {
       const config = {"Content-Type": 'application/json'};
       axios.post(url, data, config)
       .then(() => {
-        this.$toast.success(`회원 가입 성공`, { position:"top",duration:2000 });         
+        this.$toast.success(`회원 가입 성공`, { position:"top",duration:2000 });
+        this.$router.push('/login');
       })
       .catch(() => {
         this.$toast.error(`중복된 아이디 입니다.`, { position:"top",duration:2000 });
