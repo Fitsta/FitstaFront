@@ -12,12 +12,7 @@ const store = createStore({
       myProfile:{},
       updateMyProfile:{},
       navState:0,
-      loginUser:{
-        id: 2,
-        name: "minsung",
-        nickname: "flourine",
-        profileImg: "https://newsimg.hankookilbo.com/2019/08/01/201908010842397047_1.jpg",
-      },
+      loginUser:{},
     }
   },
   getters: {
@@ -65,7 +60,11 @@ const store = createStore({
     // 게시글 수정
     setUpdatePost(state, payload) {
       state.updatePost = payload;
-    }
+    },
+    // 로그인 유저
+    setLoginUser(state, payload) {
+      state.loginUser = payload;
+    },
   },
   actions: {
     // 메인화면 포스트 가져오기

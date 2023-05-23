@@ -5,6 +5,10 @@
 <script>
 export default {
   name: 'App',
+  async created() {
+    const loginUser = await JSON.parse(sessionStorage.getItem("loginUser"))
+    this.$store.commit('setLoginUser', loginUser)
+  }
 }
 </script>
 

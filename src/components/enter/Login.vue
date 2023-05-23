@@ -2,13 +2,13 @@
   <img src="../../icon/title_logo.png" class="d-inline-block align-text-top logo-title">
   <div class="input-item box">
     <div class="mb-3 mt-4 login">
-      <input type="text" class="form-control login-comp" placeholder="전화번호, 사용자 이름 또는 이메일">
+      <input type="text" class="form-control login-comp" placeholder="전화번호, 사용자 이름 또는 이메일" v-model="this.email">
     </div>
     <div class="mb-3 mt-4 login">
-      <input type="password" class="form-control login-comp" placeholder="비밀번호">
+      <input type="password" class="form-control login-comp" placeholder="비밀번호" v-model="this.password">
     </div>
     <p class="find-pw">비밀번호를 잊으셨나요?</p>
-    <button class="btn btn-primary login-btn" type="button">로그인</button>  
+    <button class="btn btn-primary login-btn" type="button" @click="login">로그인</button>  
   </div>
   <hr class="box line">
   <div class="or">
@@ -26,17 +26,47 @@
 import axios from 'axios';
 
 export default {
+  data() {
+    return{
+      email:"",
+      password:"",
+    }
+  },
   methods: {
     kakaoLogin(){
+      // window.location.href = `
+      // https://kauth.kakao.com/oauth/authorize?client_id=a7e51c2902f13febf913e240bbf81f77&redirect_uri=http://localhost:8080/kakao_login/kakao&response_type=code
+      // `;
       axios.get(process.env.VUE_APP_API_URL + 'login')
       .then((response) => {
-        // console.log(response.data)
-        // console.warn("warn : " + response);
+        // console.log(response)
         window.location.href = response.data;
+        console.log(response.headers)
+        console.log(response)
+        console.log(response.data)
+        this.$router.push('/')
       })
     },
     enter() {
       this.$router.push('/enter');
+    },
+    login() {
+      const url = process.env.VUE_APP_API_URL + 'api/local/';
+      const data = {
+        email: this.email,
+        password: this.password,
+      }
+      const config = {"Content-Type": 'application/json'};
+      axios.post(url, data, config)
+      .then((result) => {
+        this.$toast.success(`로그인 성공`, { position:"top",duration:2000 });
+        const loginData = JSON.stringify(result.data);
+        sessionStorage.setItem("loginUser", loginData)
+        // console.log(result.data)
+      })
+      .catch(() => {
+        this.$toast.error(`로그인에 실패했습니다`, { position:"top",duration:2000 });
+      })
     }
   },
 }
