@@ -80,12 +80,13 @@ export default {
   color: #8974fc;
 }
 .up {
-  margin-left: 22.2%;
+  margin-left: 17%;
   font-weight: bold;
   color: rgb(124, 122, 122);
 }
 .foot {
   margin-top: 60%;
+  margin-left: 9%;
   background-color: white;
   display: flex;
 }
@@ -110,11 +111,12 @@ export default {
   margin-left: 5%;
 }
 .find-pw {
+  /* width: 100%; */
   font-weight: bolder;
   color: #8974fc;
-  width: 100%;
+  position: relative;
   margin-top: 6%;
-  margin-left: 58%;
+  margin-left: 53%;
 }
 
 .login-btn {

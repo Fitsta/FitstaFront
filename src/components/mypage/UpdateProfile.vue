@@ -28,8 +28,14 @@
 import { mapState } from 'vuex';
 import Header from '../common/Header.vue'
 import Navbar from '../common/Navbar.vue'
+import axios from 'axios'
 
 export default {
+  data() {
+    return{
+      imgFile:""
+    }
+  },
   components: {
     Header,
     Navbar,
@@ -48,8 +54,45 @@ export default {
     back() {
       this.$router.go(-1)
     },
-    update() {
-      console.log(123)
+    async update() {
+      let form = new FormData();
+      form.append("images", this.imgFile);
+      form.append("password", this.loginUser.id);
+      form.append("name", this.loginUser.name);
+      form.append("nickname", this.loginUser.nickname);
+
+      const url = process.env.VUE_APP_API_URL + "update/profile";
+      const config = {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      };
+      await axios.post(url, form, config)
+      .then((response) => {
+        // console.log(response.data)
+        const newUserInfo = response.data;
+        let loginUser = JSON.parse(sessionStorage.getItem("loginUser"))
+        loginUser.name = newUserInfo.name;
+        loginUser.nickname = newUserInfo.nickname;
+        loginUser.profileImg = newUserInfo.profileImg;
+        sessionStorage.setItem("loginUser", JSON.stringify(loginUser));
+        this.$store.commit('setLoginUser', loginUser);
+      })
+      this.$toast.success(`프로필이 수정되었습니다.`, { position:"top",duration:2000 });
+
+      this.$router.push('/profile');
+
+    },
+    upload(e) {
+      let file = e.target.files[0];
+      try {
+        this.url = URL.createObjectURL(file); 
+      } catch (error) {
+        console.log(error)
+      }
+      this.loginUser.profileImg = this.url;
+      this.imgFile = file; 
+      this.$store.commit("setUpdateProfileImg", file);
     },
   }
 }

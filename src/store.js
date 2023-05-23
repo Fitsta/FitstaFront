@@ -13,6 +13,7 @@ const store = createStore({
       updateMyProfile:{},
       navState:0,
       loginUser:{},
+      updateProfileImg:"",
     }
   },
   getters: {
@@ -64,6 +65,10 @@ const store = createStore({
     // 로그인 유저
     setLoginUser(state, payload) {
       state.loginUser = payload;
+    },
+    // 프사 수정
+    setUpdateProfileImg(state, payload) {
+      state.updateMyProfile = payload;
     },
   },
   actions: {
@@ -163,6 +168,7 @@ const store = createStore({
         console.log(result.data)
       })
     },
+    // 내 프로필 가져오기
     getMyProfile(context, payload) {
       const url = process.env.VUE_APP_API_URL + 'api/profile/' + payload;
       axios.get(url)
