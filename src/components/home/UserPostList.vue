@@ -1,5 +1,9 @@
 <template>
   <Header />
+  <div class="title-container">
+    <img class="icon-cross" src="../../icon/back.png" @click="back">
+    <p class="username">{{ myProfile.nickname }}</p>
+  </div>
   <div class="big-container">
     <div class="container">
       <img class="user-image" :src="`${myProfile.profileImg}`" alt="프로필사진">
@@ -30,7 +34,8 @@
     </div>
     <div class="name">
     </div>
-    <hr>
+     <button type="button" class="btn btn-light profile-btn" @click="follow">팔로우</button>
+  <button type="button" class="btn btn-light profile-btn">메시지</button>
   </div>
   <div v-for="(post, index) in postList" :key="index">
     <Post :post="post" :index="index" :type="`user`"/>
@@ -60,10 +65,45 @@ export default {
     this.$store.dispatch("getMyProfile", id);
     this.$store.dispatch('getUserPostList', id);
   },
+  methods: {
+    follow(){
+
+    },
+    back() {
+      this.$router.go(-1)
+    },
+  }
 }
 </script>
 
 <style scoped>
+.title-container{
+  display: flex;
+}
+.icon-cross {
+  margin-top: 0%;
+  margin-left: 2%;
+  padding: 5px;
+  width : 35px;
+  height: 35px;
+}
+.profile-btn {
+  width: 180px;
+  margin-top: 5%;
+  margin-left: 4%;
+  margin-bottom: 3%;
+  background-color: lightgray;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.username{
+  margin-left: 2%;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 0px;
+}
+
 .name {
   margin-top: 2%;
   margin-left: 5.6%;
@@ -97,7 +137,6 @@ export default {
   margin-left: 1.5%;
   width: 97%;
   border-radius: 10px;
-  padding-bottom: 4%;
   /* background-color: rgb(235, 226, 238); */
 }
 .user-image {

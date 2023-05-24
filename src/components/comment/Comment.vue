@@ -1,17 +1,25 @@
 <template>
   <Header />
-  <div class="box">
-
-  <p class="comment-title">댓글</p>
-  <button type="button" class="btn btn-sm btn-light post-btn" @click="publish">게시</button>
+  <div class="top">
+    <div class="box">
+    <img class="icon-cross" src="../../icon/back.png" @click="back">
+      <p class="comment-title regist">댓글</p>
+      <img class="bg" src="../../icon/white.png">
+      <!-- <img src="../../icon/kakao.jpg"> -->
+      <button type="button" class="btn btn-sm btn-light post-btn regist" @click="publish">게시</button>
+    </div>
+    <div class="input-area regist2">
+      <textarea type="text" class="form-control login-comp" v-model="this.myComment" placeholder="댓글 추가..."/>
+    </div>
   </div>
-    <div class="input-area">
-    <textarea type="text" class="form-control login-comp" v-model="this.myComment" placeholder="댓글 추가..."/>
+  <div class="comment-list">
+    <CommentComp :comment="`asd`"/>
+    <div v-for="(comment, index) in commentList" :key="index">
+      <CommentComp :comment="comment"/>
+    </div>
   </div>
-  <CommentComp :comment="`asd`"/>
-  <div v-for="(comment, index) in commentList" :key="index">
-    <CommentComp :comment="comment"/>
-  </div>
+  <br>
+  <br>
   <Navbar />
 </template>
 
@@ -45,16 +53,51 @@ export default {
     publish() {
       console.log(this.myComment)
     },
+    back() {
+      console.log(123)
+      this.$router.go(-1)
+    },
   }
 }
 </script>
 
 <style scoped>
+.icon-cross {
+  position: fixed;
+  z-index: 1;
+  margin-top: 0%;
+  margin-left: 2.3%;
+  padding: 5px;
+  width : 35px;
+  height: 35px;
+}
+.bg {
+  margin-top: 0px;
+  position: fixed;
+  width: 600px;
+  height: 110px;
+}
+.top {
+  width: 100%;
+  height: 100%;
+}
+.comment-list {
+  margin-top: 11%;
+}
+.regist {
+  z-index: 1;
+  position: fixed;
+}
+.regist2 {
+  position: fixed;
+  top: 11%;
+}
 .box {
+  
   display: flex;
 }
 .post-btn{
-  margin-left: 70%;
+  margin-left: 83.4%;
   width: 50px;
   height: 30px;
   font-weight: bold;
@@ -74,6 +117,6 @@ export default {
 .comment-title {
   font-weight: bolder;
   font-size: 20px;
-  margin-left: 3.7%;
+  margin-left: 15%;
 }
 </style>

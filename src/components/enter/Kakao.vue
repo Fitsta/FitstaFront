@@ -11,6 +11,7 @@ export default {
     console.log(url)
     axios.get(url)
     .then((result) => {
+      this.$store.commit('setLoginUser', result.data)
       const loginData = JSON.stringify(result.data);
       sessionStorage.setItem("loginUser", loginData);
       this.$router.push('/main');

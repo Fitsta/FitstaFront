@@ -19,12 +19,11 @@
       <img class="post-icon" src="../../icon/dm.png" @click="showDM">
       <!-- 수정, 삭제 드랍다운 -->
       <img v-if="post.writerId == this.$store.state.loginUser.id"
-        class="col-icon dropdown-toggle" src="../../icon/menu.png" @click="bookMark" data-bs-toggle="dropdown" aria-expanded="false">
+        class="col-icon dropdown-toggle" src="../../icon/menu.png" data-bs-toggle="dropdown" aria-expanded="false">
       <ul class="dropdown-menu">
         <li><a class="dropdown-item" @click="updatePost">수정</a></li>
         <li><a class="dropdown-item" @click="deletePost">삭제</a></li>
       </ul>
-      <!-- <img v-else class="col-icon" src="../../icon/collection.png" @click="bookMark"> -->
       <!-- ... 버튼 누르면 수정 삭제 -->
       <!-- post info -->
       <p class="likes">좋아요 {{ post.likeCount }}개</p>
@@ -46,7 +45,8 @@ export default {
   },
   methods: {
     showComment(postId) {
-      console.log(postId + ' 댓글창 열기')
+      this.$router.push('/comment/' + postId)
+      // console.log(postId + ' 댓글창 열기')
     },
 
     showDM() {

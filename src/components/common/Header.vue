@@ -3,8 +3,8 @@
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
         <img src="../../icon/title_logo.png" alt="Logo" height="40" class="d-inline-block align-text-top logo-title">
-        <img class="icon left" src="../../icon/no_up.png">
-        <img class="icon" src="../../icon/dm.png">
+        <img class="icon left" src="../../icon/up.png">
+        <img class="icon" src="../../icon/menu.png">
       </a>
     </div>
   </nav>
