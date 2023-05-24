@@ -14,7 +14,7 @@ import UserPostList from './components/home/UserPostList.vue'
 import Comment from './components/comment/Comment.vue';
 import FollowerInfo from './components/follow/FollowerInfo.vue'
 import FollowingInfo from './components/follow/FollowingInfo.vue'
-
+import LikeList from './components/like/LikeList.vue'
 
 const routes = [
   {
@@ -77,6 +77,10 @@ const routes = [
   {
     path: "/followingInfo/:id",
     component: FollowingInfo
+  },
+  {
+    path: "/like",
+    component: LikeList
   }
 ];
 

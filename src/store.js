@@ -17,6 +17,7 @@ const store = createStore({
       followInfo:[],
       targetUserName:"",
       commentList:[],
+      myLikeList:[],
     }
   },
   getters: {
@@ -62,7 +63,6 @@ const store = createStore({
     unfollow1(state, payload) {
       state.followInfo[payload].follow = !state.followInfo[payload].follow;
     },
-    
     // 좋아요
     setLike(state, payload) {
       state.postList[payload].like = !state.postList[payload].like;
@@ -91,6 +91,10 @@ const store = createStore({
     },
     // 댓글
     setCommentList(state, payload) {
+      state.commentList = payload;
+    },
+    // 좋아요누른 게시물
+    setLikeList(state, payload) {
       state.commentList = payload;
     }
   },
@@ -251,6 +255,10 @@ const store = createStore({
           this.commit('setCommentList', result.data);
         })
       })
+    },
+    // 내가 좋아요 누른 게시물
+    getLikeList(context, payload) {
+      console.log(payload + "번 유저가 좋아요 누른 게시물");
     }
   },
   modules:{

@@ -30,7 +30,8 @@ export default {
       });
     },
     likePostList() {
-      console.log(123)
+      console.log("내가 찜한 게시글 보기")
+      this.$router.push('/like')
     }
   }
 }
