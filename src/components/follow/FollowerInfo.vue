@@ -2,7 +2,7 @@
   <Header />
     <div class="title-container">
       <img class="icon-cross" src="../../icon/back.png" @click="back">
-      <p class="username">{{ targetUserName }} 님의 팔로워</p>
+      <p class="username">{{ this.name }} 님의 팔로워</p>
     </div>
     <div v-for="(user, index) in followInfo" :key="index">
       <FollowUserComp :user="user" :index="index"/>
@@ -11,12 +11,18 @@
 </template>
 
 <script>
+import axios from 'axios';
 import { mapState } from 'vuex';
 import Header from '../common/Header.vue'
 import Navbar from '../common/Navbar.vue'
 import FollowUserComp from './FollowUserComp.vue';
 
 export default {
+  data() {
+    return{
+      name:""
+    }
+  },
   components: {
     Header,
     FollowUserComp,
@@ -29,6 +35,11 @@ export default {
   },
   created() {
     this.$store.dispatch('getFollowingList', this.$route.params.id)
+    const url = process.env.VUE_APP_API_URL + 'api/enter/' + this.$route.params.id;
+    axios.get(url)
+    .then((result) =>{
+      this.name = result.data;
+    })
   },
   methods: {
     back() {

@@ -51,7 +51,7 @@ export default {
   width: 80px;
   height: 40px;
   position: absolute;
-  margin-left: 70%;
+  left: 76%;
 }
 .follow4 {
   font-weight: bolder;
@@ -61,7 +61,11 @@ export default {
   width: 80px;
   height: 40px;
   position: absolute;
-  margin-left: 70%;
+  left: 76%;
+
+}
+.user-image{
+  margin-left: 2%;
 }
 .name {
   font-size: 14px;
@@ -71,7 +75,7 @@ export default {
 
 .container {
   display: flex;
-  margin-left: 2%;
+  /* margin-left: 2%; */
 }
 
 .id {
@@ -85,6 +89,6 @@ export default {
   min-width:32px;
   border-radius: 50%;
   overflow:hidden;
-  margin-right: 10px;
+  margin-right: 3.5%;
 }
 </style>
