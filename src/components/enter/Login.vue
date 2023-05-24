@@ -60,6 +60,7 @@ export default {
       axios.post(url, data, config)
       .then((result) => {
         this.$toast.success(`로그인 성공`, { position:"top",duration:2000 });
+        this.$store.commit('setLoginUser', result.data)
         const loginData = JSON.stringify(result.data);
         sessionStorage.setItem("loginUser", loginData)
         // console.log(result.data)

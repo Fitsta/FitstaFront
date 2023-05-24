@@ -22,7 +22,7 @@ export default {
 <style scoped>
 .date2 {
   margin-left: 3%;
-  margin-top: 1.3%;
+  margin-top: 0.9%;
   color: rgb(110, 108, 108);
   font-size: 14px;
   font-weight: bolder !important;
@@ -37,6 +37,7 @@ p {
 .content2 {
   margin-top: 2%;
   font-weight: bolder;
+  font-size: 14px;
 }
 .comment-title {
   font-weight: bolder;

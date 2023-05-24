@@ -1,5 +1,4 @@
 <template>
-  <!-- <Header /> -->
   <div class="player">
   <iframe class="video-box"
           id=""
@@ -15,7 +14,6 @@
 </template>
 
 <script>
-// import Header from '../common/Header.vue'
 import Navbar from '../common/Navbar.vue'
 
 export default {

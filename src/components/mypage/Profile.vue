@@ -1,5 +1,6 @@
 <template>
   <Header />
+  <p class="username">{{ myProfile.nickname }}</p>
   <div class="container">
     <img class="user-image" :src="`${myProfile.profileImg}`" alt="프로필사진">
     <div class="box">
@@ -108,6 +109,12 @@ export default {
 </script>
 
 <style scoped>
+.username{
+  margin-left: 7%;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 0px;
+}
 .calendar {
   margin-top: 7%;
   margin-left: 27%;

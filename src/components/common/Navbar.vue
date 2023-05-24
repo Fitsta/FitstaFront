@@ -15,8 +15,8 @@
     <img v-if="this.$store.state.navState === 3" class="icon-select" src="../../icon/reels.png" @click="moveReels">
     <img v-else class="icon" src="../../icon/reels.png" @click="moveReels">
 
-    <img v-if="this.$store.state.navState === 4" class="icon-select" src="../../icon/up.png" @click="moveProfile">
-    <img v-else class="icon" src="../../icon/up.png" @click="moveProfile">
+    <img v-if="this.$store.state.navState === 4" class="icon-select my-profile" :src="this.$store.state.loginUser.profileImg" @click="moveProfile">
+    <img v-else class="icon my-profile2" :src="this.$store.state.loginUser.profileImg" @click="moveProfile">
   </div>
   <div v-else class="footer">
     <img v-if="this.$store.state.navState === 0" class="icon first" src="../../icon/mainBorder.png" @click="moveHome">
@@ -34,8 +34,8 @@
     <img v-if="this.$store.state.navState === 3" class="icon-select" src="../../icon/r_reels.png" @click="moveReels">
     <img v-else class="icon" src="../../icon/r_reels.png" @click="moveReels">
 
-    <img v-if="this.$store.state.navState === 4" class="icon-select" src="../../icon/up.png" @click="moveProfile">
-    <img v-else class="icon" src="../../icon/up.png" @click="moveProfile">
+    <img v-if="this.$store.state.navState === 4" class="icon-select my-profile" :src="this.$store.state.loginUser.profileImg" @click="moveProfile">
+    <img v-else class="icon my-profile2" :src="this.$store.state.loginUser.profileImg" @click="moveProfile">
   </div>
 </template>
 
@@ -88,6 +88,19 @@ export default {
 </script>
 
 <style scoped>
+.my-profile {
+  width: 40px !important;
+  height: 40px !important;
+  padding: 0px !important;
+  border-radius: 50%;
+}
+
+.my-profile2 {
+  width: 40px !important;
+  height: 40px !important;
+  padding: 4px !important;
+  border-radius: 50%;
+}
 
 .footer-button-plus {
   width: 80px;
