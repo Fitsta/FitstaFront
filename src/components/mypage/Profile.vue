@@ -11,17 +11,17 @@
         게시물
       </div>
     </div>
-    <div class="box">
+    <div class="box" @click="showFollowerList">
       <div class="num">
-        {{myProfile.followerCount}}
+        {{myProfile.followingCount}}
       </div>
       <div class="category">
         팔로워
       </div>
     </div>
-    <div class="box">
+    <div class="box" @click="showFollowingList">
       <div class="num">
-        {{myProfile.followingCount}}
+        {{myProfile.followerCount}}
       </div>
       <div class="category">
         팔로잉
@@ -94,7 +94,15 @@ export default {
     },
     detail() {
       this.$router.push('/detail/' + this.$store.state.loginUser.id);
-    }
+    },
+    showFollowerList() {
+      this.$store.commit('setTargetUserName', this.myProfile.nickname);
+      this.$router.push('/followerInfo/' + this.myProfile.userId);
+    },
+    showFollowingList() {
+      this.$store.commit('setTargetUserName', this.myProfile.nickname);
+      this.$router.push('/followingInfo/' + this.myProfile.userId);
+    },
   },
   computed: {
     ...mapState(['myProfile']),

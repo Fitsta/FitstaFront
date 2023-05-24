@@ -199,7 +199,7 @@ const store = createStore({
     },
     // 팔로우 정보 세팅
     getFollowerList(context, payload) {
-      const url = process.env.VUE_APP_API_URL + "api/searchUser/searchFollower/" + payload;
+      const url = process.env.VUE_APP_API_URL + "api/searchUser/searchFollower/" + payload + '/' + this.state.loginUser.id;
       axios.get(url)
       .then((result) => {
         this.commit('setFollowInfo', result.data)
@@ -207,7 +207,7 @@ const store = createStore({
     },
     // 팔로워 정보 세팅
     getFollowingList(context, payload) {
-      const url = process.env.VUE_APP_API_URL + "api/searchUser/searchFollowing/" + payload;
+      const url = process.env.VUE_APP_API_URL + "api/searchUser/searchFollowing/" + payload + '/' + this.state.loginUser.id;
       axios.get(url)
       .then((result) => {
         this.commit('setFollowInfo', result.data)

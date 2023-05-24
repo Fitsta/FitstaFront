@@ -1,4 +1,5 @@
 <template>
+  <!-- {{user}} -->
   <div class="container mb-4">
     <img class="user-image" :src="`${user.profileImg}`" alt="프로필사진" @click="detail(user.userId)">
     <div>
@@ -70,6 +71,7 @@ export default {
 
 .container {
   display: flex;
+  margin-left: 2%;
 }
 
 .id {
