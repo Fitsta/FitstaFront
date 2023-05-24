@@ -7,5 +7,6 @@ import store from './store.js'
 import Toaster from '@meforma/vue-toaster';
 import VCalendar from 'v-calendar';
 import 'v-calendar/style.css';
+import './registerServiceWorker'
 
 createApp(App).use(store).use(router).use(Toaster).use(VCalendar, {}).mount('#app')

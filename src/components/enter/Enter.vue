@@ -2,7 +2,7 @@
   <img src="../../icon/title_logo.png" class="d-inline-block align-text-top logo-title">
   <div class="input-item box">
     <div class="mb-3 mt-4 login">
-      <input type="text" class="form-control login-comp" v-model="this.id" placeholder="전화번호, 사용자 이름 또는 이메일">
+      <input type="text" class="form-control login-comp" v-model="this.id" placeholder="사용자 이름 또는 이메일">
     </div>
     <div class="mb-3 mt-4 login">
       <input type="password" class="form-control login-comp" v-model="this.pw" placeholder="비밀번호">

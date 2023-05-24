@@ -1,7 +1,11 @@
 const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
+  pwa: {
+    name: 'Firsta',
+    themeColor : '#a99df0',
+  },
   transpileDependencies: true,
   devServer: {
-    proxy : 'http://localhost:8080'
+    proxy : 'https://minsung.site'
   }
 })
