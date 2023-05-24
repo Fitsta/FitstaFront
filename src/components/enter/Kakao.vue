@@ -1,5 +1,5 @@
 <template>
-  {{ this.$route.params.id }}
+  ㅇ
 </template>
 
 <script>

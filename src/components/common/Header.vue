@@ -4,15 +4,32 @@
       <a class="navbar-brand" href="#">
         <img src="../../icon/title_logo.png" alt="Logo" height="40" class="d-inline-block align-text-top logo-title">
         <img class="icon left" src="../../icon/up.png">
-        <img class="icon" src="../../icon/menu.png">
+        <img class="icon" src="../../icon/menu.png" @click="logout">
       </a>
     </div>
   </nav>
 </template>
 
 <script>
-export default {
+import swal from 'sweetalert';
 
+export default {
+  methods: {
+    logout() {
+      swal({
+        text: "로그아웃 하시겠습니까?",
+        buttons: ["취소", "확인"]
+      })
+      .then((result) => {
+        // 로그아웃
+        if (result) {
+          sessionStorage.removeItem("loginUser")
+          this.$router.push('/enter')
+          this.$toast.success(`로그아웃 되었습니다.`, { position:"top",duration:2000 });
+        } 
+      });
+    }
+  }
 }
 </script>
 
