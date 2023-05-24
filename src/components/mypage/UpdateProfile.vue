@@ -81,7 +81,7 @@ export default {
       this.$toast.success(`프로필이 수정되었습니다.`, { position:"top",duration:2000 });
 
       this.$router.push('/profile');
-
+      this.$router.go(0)
     },
     upload(e) {
       let file = e.target.files[0];

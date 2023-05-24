@@ -12,6 +12,9 @@ import Enter from './components/enter/Enter.vue'
 import Kakao from './components/enter/Kakao.vue'
 import UserPostList from './components/home/UserPostList.vue'
 import Comment from './components/comment/Comment.vue';
+import FollowerInfo from './components/follow/FollowerInfo.vue'
+import FollowingInfo from './components/follow/FollowingInfo.vue'
+
 
 const routes = [
   {
@@ -66,6 +69,14 @@ const routes = [
   {
     path: "/kakao/:id",
     component: Kakao
+  },
+  {
+    path: "/followerInfo/:id",
+    component: FollowerInfo
+  },
+  {
+    path: "/followingInfo/:id",
+    component: FollowingInfo
   }
 ];
 

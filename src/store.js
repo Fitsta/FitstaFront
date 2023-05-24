@@ -14,6 +14,8 @@ const store = createStore({
       navState:0,
       loginUser:{},
       updateProfileImg:"",
+      followInfo:[],
+      targetUserName:""
     }
   },
   getters: {
@@ -48,6 +50,18 @@ const store = createStore({
     unfollow(state, payload) {
       state.userList[payload].follow = !state.userList[payload].follow;
     },
+    setTargetUserName(state, payload) {
+      state.targetUserName = payload;
+    },
+    // 팔로우
+    follow1(state, payload) {
+      state.followInfo[payload].follow = !state.followInfo[payload].follow;
+    },
+    // 언팔로우
+    unfollow1(state, payload) {
+      state.followInfo[payload].follow = !state.followInfo[payload].follow;
+    },
+    
     // 좋아요
     setLike(state, payload) {
       state.postList[payload].like = !state.postList[payload].like;
@@ -70,6 +84,10 @@ const store = createStore({
     setUpdateProfileImg(state, payload) {
       state.updateMyProfile = payload;
     },
+    // 팔로우 정보
+    setFollowInfo(state, payload) {
+      state.followInfo = payload;
+    }
   },
   actions: {
     // 메인화면 포스트 가져오기
@@ -82,7 +100,7 @@ const store = createStore({
     },
     // 특정 유저의 게시글 가져오기
     getUserPostList(context, writerId) {
-      const url = process.env.VUE_APP_API_URL + 'api/postInfo/detail/' + writerId;
+      const url = process.env.VUE_APP_API_URL + 'api/postInfo/detail/' + writerId + '/' + this.state.loginUser.id;
       axios.get(url)
       .then((result) => {
         // this.commit('setUserPostList', result.data);
@@ -112,7 +130,7 @@ const store = createStore({
       const url = process.env.VUE_APP_API_URL + 'api/follow/unfollow';
       const data = {
         followingId: this.state.loginUser.id,
-        followerId: payload
+        followerId: payload,
       };
       const config = {"Content-Type": 'application/json'};
       axios.post(url, data, config)
@@ -179,6 +197,22 @@ const store = createStore({
         this.commit('setMyProfile', result.data);
       })
     },
+    // 팔로우 정보 세팅
+    getFollowerList(context, payload) {
+      const url = process.env.VUE_APP_API_URL + "api/searchUser/searchFollower/" + payload;
+      axios.get(url)
+      .then((result) => {
+        this.commit('setFollowInfo', result.data)
+      })
+    },
+    // 팔로워 정보 세팅
+    getFollowingList(context, payload) {
+      const url = process.env.VUE_APP_API_URL + "api/searchUser/searchFollowing/" + payload;
+      axios.get(url)
+      .then((result) => {
+        this.commit('setFollowInfo', result.data)
+      })
+    }
   },
   modules:{
 

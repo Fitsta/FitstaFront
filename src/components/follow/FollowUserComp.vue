@@ -22,11 +22,11 @@ export default {
         return
       }
       this.$store.dispatch("followAndGetUserList", this.user.userId)
-      this.$store.commit('follow', this.index)
+      this.$store.commit('follow1', this.index)
     },
     unfollow() {
       this.$store.dispatch("unFollowAndGetUserList", this.user.userId)
-      this.$store.commit('unfollow', this.index)
+      this.$store.commit('unfollow1', this.index)
     },
     detail(userId) {
       this.$router.push('/detail/' + userId);

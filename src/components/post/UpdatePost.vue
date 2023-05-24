@@ -59,7 +59,7 @@ export default {
       this.$store.commit("setPostImageFile", file);
       this.$store.commit("setImgURL", this.url);
     },
-    publish() {
+    async publish() {
       let form = new FormData();
       const photoFile = this.$store.state.postImageFile;
       form.append("images", photoFile);
@@ -74,7 +74,7 @@ export default {
           'Content-Type': 'multipart/form-data'
         }
       };
-      axios.post(url, form, config)
+      await axios.post(url, form, config)
       .then((response) => {
         console.log(response)
       })

@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
         <img src="../../icon/title_logo.png" alt="Logo" height="40" class="d-inline-block align-text-top logo-title">
-        <img class="icon left" src="../../icon/up.png">
+        <img class="icon left" src="../../icon/up.png" @click="likePostList">
         <img class="icon" src="../../icon/menu.png" @click="logout">
       </a>
     </div>
@@ -28,6 +28,9 @@ export default {
           this.$toast.success(`로그아웃 되었습니다.`, { position:"top",duration:2000 });
         } 
       });
+    },
+    likePostList() {
+      console.log(123)
     }
   }
 }

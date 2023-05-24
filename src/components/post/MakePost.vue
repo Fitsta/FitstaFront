@@ -47,7 +47,7 @@ export default {
     ...mapState(['imgURL'])
   },
   methods: {
-    publish() {
+    async publish() {
       // console.log(this.comment)
 
       let form = new FormData();
@@ -63,12 +63,14 @@ export default {
           'Content-Type': 'multipart/form-data'
         }
       };
-      axios.post(url, form, config)
+      await axios.post(url, form, config)
       .then((response) => {
         console.log(response)
       })
+      // this.$router.go(0)
       this.$toast.success(`포스팅이 등록되었습니다.`, { position:"top",duration:2000 });
       this.$router.push('/detail/' + this.$store.state.loginUser.id);
+    
     },
     fire(event) {
       this.currFilter = event
