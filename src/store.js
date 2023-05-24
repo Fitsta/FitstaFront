@@ -6,7 +6,7 @@ const store = createStore({
     return {
       imgURL:"",
       postList:[],
-      postImageFile:"",
+      postImageFile:"1",
       updatePost:{},
       userList:[],
       myProfile:{},
@@ -15,7 +15,8 @@ const store = createStore({
       loginUser:{},
       updateProfileImg:"",
       followInfo:[],
-      targetUserName:""
+      targetUserName:"",
+      commentList:[],
     }
   },
   getters: {
@@ -87,6 +88,10 @@ const store = createStore({
     // 팔로우 정보
     setFollowInfo(state, payload) {
       state.followInfo = payload;
+    },
+    // 댓글
+    setCommentList(state, payload) {
+      state.commentList = payload;
     }
   },
   actions: {
@@ -211,6 +216,40 @@ const store = createStore({
       axios.get(url)
       .then((result) => {
         this.commit('setFollowInfo', result.data)
+      })
+    },
+    // 댓글 조회
+    getCommentList(context, payload) {
+      const url = process.env.VUE_APP_API_URL + 'api/commentInfo/' + payload;
+      axios.get(url)
+      .then((result) => {
+        this.commit('setCommentList', result.data);
+      })
+    },
+    // 댓글 등록
+    registComment(context, payload) {
+      const url = process.env.VUE_APP_API_URL + 'api/comment/regist';
+      const data = payload;
+      const config = {"Content-Type": 'application/json'};
+      axios.post(url, data, config)
+      .then(() => {
+        const url = process.env.VUE_APP_API_URL + 'api/commentInfo/' + payload.postId;
+        axios.get(url)
+        .then((result) => {
+          this.commit('setCommentList', result.data);
+        })
+      })
+    },
+    // 댓글 삭제
+    deleteComment(context, payload) {
+      const url = process.env.VUE_APP_API_URL + "api/comment/delete/" + payload.commentId;
+      axios.delete(url)
+      .then(() => {
+        const url = process.env.VUE_APP_API_URL + 'api/commentInfo/' + payload.postId;
+        axios.get(url)
+        .then((result) => {
+          this.commit('setCommentList', result.data);
+        })
       })
     }
   },

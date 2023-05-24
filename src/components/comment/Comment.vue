@@ -27,12 +27,11 @@
 import Header from '../common/Header.vue'
 import Navbar from '../common/Navbar.vue'
 import CommentComp from '../comment/CommentComp.vue'
-import axios from 'axios'
+import { mapState } from 'vuex';
 
 export default {
   data() {
     return {
-      commentList:[],
       myComment:""
     }
   },
@@ -41,17 +40,21 @@ export default {
     Navbar,
     CommentComp
   },
+  computed: {
+    ...mapState(['commentList'])
+  },
   created () {
-    const url = process.env.VUE_APP_API_URL + 'api/commentInfo/' + this.$route.params.id;
-    axios.get(url)
-    .then((result) => {
-      this.commentList = result.data;
-      // console.log(result.data)
-    })
+    this.$store.dispatch('getCommentList', this.$route.params.id)
   },
   methods: {
     publish() {
-      console.log(this.myComment)
+      const data = {
+        comment : this.myComment,
+        userId : this.$store.state.loginUser.id,
+        postId : this.$route.params.id,
+      }
+      this.$store.dispatch('registComment', data)
+      this.$toast.success(`댓글이 등록되었습니다.`, { position:"top",duration:2000 });
     },
     back() {
       console.log(123)
@@ -82,7 +85,7 @@ export default {
   height: 100%;
 }
 .comment-list {
-  margin-top: 11%;
+  margin-top: 12%;
 }
 .regist {
   z-index: 1;
@@ -111,7 +114,7 @@ export default {
   align-content: center;
   display: flex;
   width: 93%;
-  margin-bottom: 4%;
+  margin-bottom: 5%;
 }
 
 .comment-title {
