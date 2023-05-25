@@ -7,7 +7,7 @@ import axios from 'axios';
 
 export default {
   created() {
-    const url = process.env.VUE_APP_API_URL + 'kakao/' +  this.$route.params.id;
+    const url = process.env.VUE_APP_API_URL + 'kakao/' + this.$route.params.id;
     console.log(url)
     axios.get(url)
     .then((result) => {
