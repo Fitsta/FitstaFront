@@ -149,7 +149,6 @@ const store = createStore({
       const url = process.env.VUE_APP_API_URL + 'api/searchUser/search/' + this.state.loginUser.id + "/" + payload;
       axios.get(url)
       .then((result) => {
-        console.log(payload)
         this.commit('setUserList', result.data);
       })
     },
@@ -195,7 +194,6 @@ const store = createStore({
       axios.get(url)
       .then((result) => {
         this.commit('setUpdatePost', result.data);
-        console.log(result.data)
       })
     },
     // 내 프로필 가져오기
@@ -261,7 +259,6 @@ const store = createStore({
       const url = process.env.VUE_APP_API_URL + 'api/postInfo/like/' + payload;
       axios.get(url)
       .then((result) => {
-        console.log(result.data)
         this.commit('setLikeList',result.data);
       })
     },

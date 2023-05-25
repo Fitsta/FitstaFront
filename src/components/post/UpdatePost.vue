@@ -76,7 +76,8 @@ export default {
       };
       await axios.post(url, form, config)
       .then((response) => {
-        console.log(response)
+        response
+        // console.log(response)
       })
       this.$toast.success(`포스팅이 수정되었습니다.`, { position:"top",duration:2000 });
       this.$router.push('/detail/' + this.$store.state.loginUser.id);
@@ -143,7 +144,7 @@ export default {
 .upload-image {
   z-index: -1;
   width: 100%;
-  height: 300px;
+  height: 400px;
   background: cornflowerblue;
   background-size: cover;
 }

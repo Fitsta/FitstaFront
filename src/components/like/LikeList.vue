@@ -2,7 +2,7 @@
   <Header />
   <div class="title-container">
     <img class="icon-cross" src="../../icon/back.png" @click="back">
-    <p class="username">내가 좋아요누른 게시물</p>
+    <p class="username">좋아요</p>
     <!-- 내꺼 제외하고 띄우기 -->
     <!-- 
       { 

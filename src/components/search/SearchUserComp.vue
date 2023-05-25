@@ -14,7 +14,6 @@
 
 
 export default {
-
   methods : {
     follow() {
       if (this.user.userId === this.$store.state.loginUser.id) {

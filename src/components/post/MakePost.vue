@@ -65,7 +65,8 @@ export default {
       };
       await axios.post(url, form, config)
       .then((response) => {
-        console.log(response)
+        response
+        // console.log(response)
       })
       // this.$router.go(0)
       this.$toast.success(`포스팅이 등록되었습니다.`, { position:"top",duration:2000 });
@@ -88,7 +89,7 @@ export default {
 
 <style scoped>
 .publish-btn {
-  margin-left: 58.5%;
+  margin-left: 58%;
   margin-bottom: 10px;
   color: #8974fc;
   border-color: #8974fc;

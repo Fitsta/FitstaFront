@@ -74,7 +74,6 @@ export default {
       };
       await axios.post(url, form, config)
       .then((response) => {
-        console.log(response.data)
         const newUserInfo = response.data;
         let loginUser = JSON.parse(sessionStorage.getItem("loginUser"))
         loginUser.name = newUserInfo.name;

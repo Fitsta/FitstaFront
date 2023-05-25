@@ -49,9 +49,12 @@
 
   <div class="container text-center">
     <div v-if="this.state == 0" class="row row-cols-3 images">
-      <img 
+      <div 
         @click="detail"
-        v-for="(post, index) in myProfile.postList" :key="index" :src="post.img" class="col my-grid" alt="프로필사진">
+        v-for="(post, index) in myProfile.postList"
+        :key="index"
+        :style="{ backgroundImage : `url(${post.img})` }"
+        :class="post.filterName + ' col my-grid'" alt="프로필사진"></div>
     </div>
     <div v-if="this.state == 1">
       <div class="calendar">
@@ -134,7 +137,12 @@ export default {
 }
 
 .my-grid {
-  padding: 1px 1px 1px 1px
+  width: 135px;
+  height: 135px;
+  margin: 1px 1px 1px 1px;
+  transform: translate(50, 50);
+  background: rgb(215, 221, 231);
+  background-size: cover;
 }
 
 .recommend {

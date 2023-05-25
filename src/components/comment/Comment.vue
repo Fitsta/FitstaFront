@@ -58,7 +58,6 @@ export default {
       this.myComment = "";
     },
     back() {
-      console.log(123)
       this.$router.go(-1)
     },
   }

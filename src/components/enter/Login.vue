@@ -33,19 +33,15 @@ export default {
     }
   },
   methods: {
-    kakaoLogin(){
+    async kakaoLogin(){
       // window.location.href = `
       // https://kauth.kakao.com/oauth/authorize?client_id=a7e51c2902f13febf913e240bbf81f77&redirect_uri=http://localhost:8080/kakao_login/kakao&response_type=code
       // `;
-      axios.get(process.env.VUE_APP_API_URL + 'login')
+      await axios.get(process.env.VUE_APP_API_URL + 'login')
       .then((response) => {
-        // console.log(response)
         window.location.href = response.data;
-        console.log(response.headers)
-        console.log(response)
-        console.log(response.data)
-        this.$router.push('/')
       })
+      this.$router.replace('/')
     },
     enter() {
       this.$router.push('/enter');

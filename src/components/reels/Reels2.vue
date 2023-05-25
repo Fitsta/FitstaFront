@@ -1,27 +1,30 @@
 <template>
   <!-- <Header /> -->
-  <div class="player">
-  <iframe class="video-box"
-          id=""
-          :src="`https://www.youtube.com/embed/${this.videoId[index]}?rel=0`"
-          title="[아이유] 근력 운동을 열심히 한다는 아이유"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
-          />
+  <div class="bg3">
+    <div class="bg">
+      <div class="player">
+      <iframe class="video-box"
+              id=""
+              :src="`https://www.youtube.com/embed/${this.videoId[index]}?rel=0`"
+              title="[아이유] 근력 운동을 열심히 한다는 아이유"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
+              />
+      </div>
+    </div>
   </div>
+  <img class="bgc" src="../../icon/black.jpg">
   <button class="btn btn-light next-btn" type="button" @click="next">다음영상</button>  
 
   <Navbar />
 </template>
 
 <script>
-// import Header from '../common/Header.vue'
 import Navbar from '../common/Navbar.vue'
 import axios from 'axios';
 
 export default {
   components: {
-    // Header,
     Navbar,
   },
   data() {
@@ -43,7 +46,7 @@ export default {
       let temp = []
       for (let item of result.data.items) {
         temp.push(item.snippet.resourceId.videoId)
-        console.log(item.snippet.resourceId.videoId)
+        // console.log(item.snippet.resourceId.videoId)
       }
       this.videoId = temp;
     })
@@ -52,6 +55,14 @@ export default {
 </script>
 
 <style scoped>
+.bgc {
+  z-index: -10;
+  width: 414px;
+  height: 63px;
+}
+body {
+  background-color: black !important;
+}
 .player{
   background-color: black;
   width: 100%;
@@ -82,8 +93,11 @@ a {
 }
 
 .next-btn {
+  /* z-index: 999; */
   position: absolute;
-  top: 0.5%;
+  /* width: 150px; */
+  /* height: 100px; */
+  top: 94%;
   right: 1%;
   font-weight: bold;
   
@@ -96,8 +110,8 @@ a {
   height: 100%;
 }
 .video-box {
-   width:412px;
-   height:862px;
+   width:413px;
+   height:802px;
 }
 .video-text {
   color: aliceblue;
@@ -105,5 +119,10 @@ a {
   top: 6.6%;
   margin-left: 88%;
   width: 100%; 
+}
+
+.bg {
+  height: 130%;
+  background-color: black;
 }
 </style>

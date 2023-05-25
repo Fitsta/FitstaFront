@@ -1,16 +1,21 @@
 <template>
-  <div class="player">
-  <iframe class="video-box"
-          id=""
-          :src="`https://www.youtube.com/embed/${this.videoId[index]}?rel=0`"
-          title="[아이유] 근력 운동을 열심히 한다는 아이유"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
-          />
+<div class="bg3">
+  <div class="bg">
+    <div class="player">
+      <iframe class="video-box"
+              id=""
+              :src="`https://www.youtube.com/embed/${this.videoId[index]}?rel=0`"
+              title="[아이유] 근력 운동을 열심히 한다는 아이유"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
+              />
+    </div>
   </div>
+  <img class="bgc" src="../../icon/black.jpg">
   <button class="btn btn-light next-btn" type="button" @click="next">다음영상</button>  
 
   <Navbar />
+</div>
 </template>
 
 <script>
@@ -39,6 +44,14 @@ export default {
 </script>
 
 <style scoped>
+.bgc {
+  z-index: -10;
+  width: 413px;
+  height: 63px;
+}
+body {
+  background-color: black !important;
+}
 .player{
   background-color: black;
   width: 100%;
@@ -69,8 +82,11 @@ a {
 }
 
 .next-btn {
+  /* z-index: 999; */
   position: absolute;
-  top: 0.5%;
+  /* width: 150px; */
+  /* height: 100px; */
+  top: 94%;
   right: 1%;
   font-weight: bold;
   
@@ -84,7 +100,7 @@ a {
 }
 .video-box {
    width:412px;
-   height:862px;
+   height:802px;
 }
 .video-text {
   color: aliceblue;
@@ -92,5 +108,10 @@ a {
   top: 6.6%;
   margin-left: 88%;
   width: 100%; 
+}
+
+.bg {
+  height: 130%;
+  background-color: black;
 }
 </style>

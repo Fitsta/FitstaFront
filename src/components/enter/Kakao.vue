@@ -6,16 +6,15 @@
 import axios from 'axios';
 
 export default {
-  created() {
+  async created() {
     const url = process.env.VUE_APP_API_URL + 'kakao/' + this.$route.params.id;
-    console.log(url)
-    axios.get(url)
+    await axios.get(url)
     .then((result) => {
       this.$store.commit('setLoginUser', result.data)
       const loginData = JSON.stringify(result.data);
       sessionStorage.setItem("loginUser", loginData);
-      this.$router.push('/main');
     })
+    this.$router.push('/main');
   }
 }
 </script>
