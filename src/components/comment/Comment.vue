@@ -55,6 +55,7 @@ export default {
       }
       this.$store.dispatch('registComment', data)
       this.$toast.success(`댓글이 등록되었습니다.`, { position:"top",duration:2000 });
+      this.myComment = "";
     },
     back() {
       console.log(123)

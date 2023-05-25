@@ -4,7 +4,7 @@
       <a class="navbar-brand" href="#">
         <img src="../../icon/title_logo.png" alt="Logo" height="40" class="d-inline-block align-text-top logo-title">
         <img class="icon left" src="../../icon/up.png" @click="likePostList">
-        <img class="icon" src="../../icon/menu.png" @click="logout">
+        <img class="icon" src="../../icon/out.png" @click="logout">
       </a>
     </div>
   </nav>

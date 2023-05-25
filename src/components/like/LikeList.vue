@@ -15,18 +15,17 @@
         "likeCount": 3, 
         "userName": "borussen", 
         "commentCount": 4, 
-        "profileImg": 
-        "https://placeimg.com/100/100/animals", 
-        "like": true 
+        "profileImg": "https://placeimg.com/100/100/animals", 등록한사람
+        "like": true // 좋아요 여부
       }
      -->
   </div>
   <div v-for="(post, index) in myLikeList" :key="index">
-    <div v-if="post.writerId === this.$store.state.loginUser.id">
-      <Post :post="post" :index="index" :type="`home`"/>
+    <div v-if="post.writerId !== this.$store.state.loginUser.id">
+      <Post :post="post" :index="index" :type="`like`"/>
     </div>
   </div>
-  {{myLikeList}}  
+  <!-- {{myLikeList}}   -->
   <Navbar />
 </template>
 

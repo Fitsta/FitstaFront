@@ -95,7 +95,7 @@ const store = createStore({
     },
     // 좋아요누른 게시물
     setLikeList(state, payload) {
-      state.commentList = payload;
+      state.myLikeList = payload;
     }
   },
   actions: {
@@ -258,8 +258,30 @@ const store = createStore({
     },
     // 내가 좋아요 누른 게시물
     getLikeList(context, payload) {
-      console.log(payload + "번 유저가 좋아요 누른 게시물");
-    }
+      const url = process.env.VUE_APP_API_URL + 'api/postInfo/like/' + payload;
+      axios.get(url)
+      .then((result) => {
+        console.log(result.data)
+        this.commit('setLikeList',result.data);
+      })
+    },
+    // 찜에서 좋아요 취소함
+    getDislikeLikeList(context, payload) {
+      const url = process.env.VUE_APP_API_URL + 'api/like/dislike';
+      const data = {
+        postId :payload,
+        userId :this.state.loginUser.id,
+      }
+      const config = {"Content-Type": 'application/json'};
+      axios.post(url, data, config)
+      .then(() => {
+        const url = process.env.VUE_APP_API_URL + 'api/postInfo/like/' + this.state.loginUser.id;
+        axios.get(url)
+        .then((result) => {
+          this.commit('setLikeList',result.data);
+        })
+      })
+    },
   },
   modules:{
 

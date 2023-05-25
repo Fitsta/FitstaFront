@@ -59,6 +59,10 @@ export default {
     },
 
     disLikeClick() {
+      if (this.type === 'like') {
+        this.$store.dispatch('getDislikeLikeList', this.post.postId);
+
+      }
       this.$store.dispatch('getDislike', this.post.postId);
       this.$store.commit('setDislike', this.index);
     },
@@ -146,7 +150,7 @@ export default {
 }
 .post-body {
   transform: translate(50, 50);
-  height: 300px;
+  height: 400px;
   background: cornflowerblue;
   background-size: cover;
 }
