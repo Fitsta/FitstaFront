@@ -86,7 +86,7 @@ a {
   position: absolute;
   /* width: 150px; */
   /* height: 100px; */
-  top: 85%;
+  top: 84%;
   right: 4%;
   font-weight: bold;
   
@@ -99,7 +99,7 @@ a {
   height: 100%;
 }
 .video-box {
-  margin-left: 1%;
+  margin-left: 2%;
   width:370px;
   height:660px;
 }

@@ -34,8 +34,8 @@
     </div>
     <div class="name">
     </div>
-     <button type="button" class="btn btn-light profile-btn" @click="follow">팔로우</button>
-  <button type="button" class="btn btn-light profile-btn">메시지</button>
+     <button v-if="myProfile.userId !== this.$store.state.loginUser.id" type="button" class="btn btn-light profile-btn" @click="follow">팔로우</button>
+  <button v-if="myProfile.userId !== this.$store.state.loginUser.id" type="button" class="btn btn-light profile-btn">메시지</button>
   </div>
   <div v-for="(post, index) in postList" :key="index">
     <Post :post="post" :index="index" :type="`user`"/>

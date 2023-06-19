@@ -3,7 +3,7 @@
     <div class="card-body">
       <img class="user-image2" :src="`${user.profileImg}`" @click="detail(user.userId)" alt="프로필사진">
       <p class="title">{{ user.nickname }}</p>
-      <p class="text">&nbsp;&nbsp;회원님을 위한 추천</p>
+      <p class="text">&nbsp;&nbsp;&nbsp;회원님을 위한 추천</p>
       <a v-if="user.follow" class="btn btn-secondary follow3" @click="unfollow1">unfollow</a>
       <a v-else class="btn  btn-light follow1" @click="follow1">follow</a>
     </div>
