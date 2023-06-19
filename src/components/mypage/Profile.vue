@@ -41,11 +41,9 @@
       <CardUser :user="user" :index="index"/>
     </div>
   </div>
-  <img v-if="this.state == 0" class="icon2" src="../../icon/grid.png" alt="프로필사진" @click="grid">
-  <img v-else class="icon" src="../../icon/grid.png" alt="프로필사진" @click="grid">
-
-  <img v-if="this.state == 1" class="icon2" src="../../icon/calendar.png" alt="프로필사진" @click="calendar">
-  <img v-else class="icon" src="../../icon/calendar.png" alt="프로필사진" @click="calendar">
+  <div class="name">
+    
+  </div>
 
   <div class="container text-center">
     <div v-if="this.state == 0" class="row row-cols-3 images">
@@ -62,6 +60,7 @@
       </div>
     </div>
   </div>
+  <br><br><br>
   <Navbar />
 </template>
 
@@ -137,8 +136,8 @@ export default {
 }
 
 .my-grid {
-  width: 135px;
-  height: 135px;
+  width: 7.81rem;
+  height: 7.81rem;
   margin: 1px 1px 1px 1px;
   transform: translate(50, 50);
   background: rgb(215, 221, 231);
@@ -167,9 +166,9 @@ export default {
 }
 
 .profile-btn {
-  width: 180px;
+  width: 160px;
   margin-top: 5%;
-  margin-left: 4%;
+  margin-left: 5.2%;
   margin-bottom: 3%;
   background-color: lightgray;
   font-size: 15px;

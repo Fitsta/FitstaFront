@@ -100,7 +100,7 @@ export default {
 
 <style scoped>
 .first {
-  margin-left: 32.5%;
+  margin-left: 30%;
 }
 .second {
   margin-left: 2%;

@@ -1,9 +1,9 @@
 <template>
   <div class="card recommend-component item" style="width: 8rem; height: 13rem">
     <div class="card-body">
-      <img class="user-image2" :src="`${user.profileImg}`" alt="프로필사진">
+      <img class="user-image2" :src="`${user.profileImg}`" @click="detail(user.userId)" alt="프로필사진">
       <p class="title">{{ user.nickname }}</p>
-      <p class="text">&nbsp;회원님을 위한 추천</p>
+      <p class="text">&nbsp;&nbsp;회원님을 위한 추천</p>
       <a v-if="user.follow" class="btn btn-secondary follow3" @click="unfollow1">unfollow</a>
       <a v-else class="btn  btn-light follow1" @click="follow1">follow</a>
     </div>
@@ -24,6 +24,9 @@ export default {
     unfollow1() {
       this.$store.dispatch("unFollowAndGetUserList", this.user.userId)
       this.$store.commit('unfollow', this.index)
+    },
+    detail(userId) {
+      this.$router.push('/detail/' + userId);
     }
   },
 }
@@ -65,7 +68,7 @@ export default {
 .text {
   margin-top: -4%;
   font-weight: bolder;
-  font-size: 6px;
+  font-size: 10px;
   color: darkgray;
 }
 

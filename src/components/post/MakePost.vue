@@ -89,7 +89,7 @@ export default {
 
 <style scoped>
 .publish-btn {
-  margin-left: 58%;
+  margin-left: 56%;
   margin-bottom: 10px;
   color: #8974fc;
   border-color: #8974fc;

@@ -46,7 +46,7 @@ export default {
 <style scoped>
 .bgc {
   z-index: -10;
-  width: 413px;
+  width: 385px;
   height: 63px;
 }
 body {
@@ -86,8 +86,8 @@ a {
   position: absolute;
   /* width: 150px; */
   /* height: 100px; */
-  top: 94%;
-  right: 1%;
+  top: 85%;
+  right: 4%;
   font-weight: bold;
   
   border-color: #a99df0;
@@ -99,19 +99,20 @@ a {
   height: 100%;
 }
 .video-box {
-   width:412px;
-   height:802px;
+  margin-left: 1%;
+  width:370px;
+  height:660px;
 }
 .video-text {
   color: aliceblue;
   position: fixed;
-  top: 6.6%;
+  /* top: 6.6%; */
   margin-left: 88%;
   width: 100%; 
 }
 
 .bg {
-  height: 130%;
+  height: 100%;
   background-color: black;
 }
 </style>

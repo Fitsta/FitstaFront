@@ -8,6 +8,9 @@
       <FollowUserComp :user="user" :index="index"/>
     </div>
   <Navbar/>
+  <br>
+  <br>
+  
 </template>
 
 <script>

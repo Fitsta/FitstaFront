@@ -60,7 +60,7 @@ export default {
 
 <style scoped>
 .content {
-  margin-left: 10px;
+  margin-left: 6px;
   margin-right: 10px;
 }
 

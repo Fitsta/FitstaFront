@@ -68,7 +68,7 @@ p {
   width: 75%;
 }
 .content2 {
-  margin-top: 2.2%;
+  /* margin-top: 1%; */
   font-weight: bolder;
   font-size: 14px;
 }

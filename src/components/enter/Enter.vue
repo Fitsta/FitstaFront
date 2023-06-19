@@ -13,9 +13,9 @@
     <button class="btn btn-primary login-btn" type="button" @click="enter">회원가입</button>  
   </div>
   <hr class="box line">
-  <div class="or">
+  <!-- <div class="or">
     또는
-  </div>
+  </div> -->
   <img class="kakao" src="../../icon/kakao.jpg" @click="kakaoLogin">
   <div class="foot">
     <div class="up">이미 계정이 있으신가요?</div>
@@ -77,19 +77,20 @@ export default {
   color: #8974fc;
 }
 .up {
-  margin-left: 17%;
   font-weight: bold;
   color: rgb(124, 122, 122);
 }
 .foot {
-  margin-top: 53%;
+  margin-top: 33%;
   background-color: white;
   display: flex;
+  justify-content: center;
 }
 .kakao {
   height: 55px;
-  margin-top: 2%;
-  margin-left: 16%;
+  margin-top: 4%;
+  margin: auto;
+  display: block;
   border-radius: 13px;
 }
 .or {
@@ -97,12 +98,13 @@ export default {
   color: darkgrey;
   position: absolute;
   left: 44%;
-  top: 62.4%;
+  top: 63.6%;
   background-color: white;
   width: 50px;
   text-align: center;
 }
 .line {
+  margin-bottom: 8%;
   margin-top: 9%;
   margin-left: 5%;
 }
@@ -135,7 +137,7 @@ export default {
 }
 
 .logo-title {
-  margin-top: 40%;
+  margin-top: 20%;
   margin-left: 22%;
   display: block;
   height: 70px;

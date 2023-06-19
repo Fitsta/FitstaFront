@@ -98,10 +98,10 @@ export default {
 
 <style scope>
 .col-icon {
-  padding: 3px;
+  padding: 1px;
   width : 27px;
   margin-top: 2%;
-  margin-left: 65%;
+  margin-left: 62.5%;
 }
 .name {
   font-weight: bolder;

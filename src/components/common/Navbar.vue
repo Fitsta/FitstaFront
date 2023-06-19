@@ -112,6 +112,7 @@ export default {
 }
 
 .footer {
+  
   width: 100%;
   position: fixed;
   bottom: 0;
@@ -122,17 +123,21 @@ export default {
 .icon {
   padding: 5px;
   width : 35px;
-  margin-right: 5.5%;
-  margin-left: 5.8%;
+  margin-right: 5%;
+  margin-left: 5%;
 }
 .icon-select {
   padding: 1px;
   width : 35px;
-  margin-right: 5.5%;
-  margin-left: 5.5%;
+  margin-right: 5%;
+  margin-left: 5%;
 }
 
 .inputfile {
   display: none;
+}
+
+.first {
+  margin-left: 6%;
 }
 </style>

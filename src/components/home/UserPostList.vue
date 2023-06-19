@@ -96,8 +96,8 @@ export default {
   height: 35px;
 }
 .profile-btn {
-  width: 180px;
-  margin-top: 5%;
+  width: 160px;
+  margin-top: 5.2%;
   margin-left: 4%;
   margin-bottom: 3%;
   background-color: lightgray;

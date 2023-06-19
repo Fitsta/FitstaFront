@@ -7,13 +7,13 @@
     <div class="mb-3 mt-4 login">
       <input type="password" class="form-control login-comp" placeholder="비밀번호" v-model="this.password">
     </div>
-    <p class="find-pw">비밀번호를 잊으셨나요?</p>
+    <div class="find-pw">비밀번호를 잊으셨나요?</div>
     <button class="btn btn-primary login-btn" type="button" @click="login">로그인</button>  
   </div>
   <hr class="box line">
-  <div class="or">
+  <!-- <div class="or">
     또는
-  </div>
+  </div> -->
   <img class="kakao" src="../../icon/kakao.jpg" @click="kakaoLogin">
   <div class="foot">
     <div class="up">계정이 없으신가요?</div>
@@ -34,11 +34,9 @@ export default {
   },
   methods: {
     async kakaoLogin(){
-      // window.location.href = `
-      // https://kauth.kakao.com/oauth/authorize?client_id=a7e51c2902f13febf913e240bbf81f77&redirect_uri=http://localhost:8080/kakao_login/kakao&response_type=code
-      // `;
       await axios.get(process.env.VUE_APP_API_URL + 'login')
       .then((response) => {
+        console.log(response.data)
         window.location.href = response.data;
       })
       this.$router.replace('/')
@@ -77,20 +75,19 @@ export default {
   color: #8974fc;
 }
 .up {
-  margin-left: 17%;
   font-weight: bold;
   color: rgb(124, 122, 122);
 }
 .foot {
-  margin-top: 60%;
-  margin-left: 9%;
+  margin-top: 44%;
   background-color: white;
   display: flex;
+  justify-content: center;
 }
 .kakao {
   height: 55px;
-  margin-top: 2%;
-  margin-left: 16%;
+  margin: auto;
+  display: block;
   border-radius: 13px;
 }
 .or {
@@ -98,12 +95,13 @@ export default {
   color: darkgrey;
   position: absolute;
   left: 44%;
-  top: 59.2%;
+  top: 57.1%;
   background-color: white;
   width: 50px;
   text-align: center;
 }
 .line {
+  margin-bottom: 8%;
   margin-top: 9%;
   margin-left: 5%;
 }
@@ -111,9 +109,8 @@ export default {
   /* width: 100%; */
   font-weight: bolder;
   color: #8974fc;
-  position: relative;
   margin-top: 6%;
-  margin-left: 53%;
+  margin-left: 55%;
 }
 
 .login-btn {
@@ -138,7 +135,7 @@ export default {
 }
 
 .logo-title {
-  margin-top: 40%;
+  margin-top: 20%;
   margin-left: 22%;
   display: block;
   height: 70px;

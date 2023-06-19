@@ -48,11 +48,15 @@ export default {
   top: 0;
 }
 .left {
-  margin-left: 88%;
+  margin-left: 81%;
+  /* align-content: right; */
+  /* align-self: right; */
+  /* float: right; */
+
 }
 .icon {
   padding: 3px;
   width : 35px;
-  margin-right: 6%;
+  margin-right: 3%;
 }
 </style>

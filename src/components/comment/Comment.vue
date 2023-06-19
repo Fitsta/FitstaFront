@@ -85,7 +85,7 @@ export default {
   height: 100%;
 }
 .comment-list {
-  margin-top: 12%;
+  margin-top: 14%;
 }
 .regist {
   z-index: 1;
@@ -93,7 +93,7 @@ export default {
 }
 .regist2 {
   position: fixed;
-  top: 11%;
+  top: 14%;
 }
 .box {
   
